@@ -32,7 +32,7 @@ namespace CreditCardValidator
 
     internal static class CreditCardData
     {
-        public static Dictionary<CardIssuer, BrandInfo> BrandsRules;
+        public static Dictionary<CardIssuer, BrandInfo> BrandsData;
 
         /// <summary>
         /// A static constructor is used to initialize any static data, or to perform a particular 
@@ -41,7 +41,7 @@ namespace CreditCardValidator
         /// </summary>
         static CreditCardData()
         {
-            BrandsRules = new Dictionary<CardIssuer, BrandInfo>();
+            BrandsData = new Dictionary<CardIssuer, BrandInfo>();
             LoadData();
         }
 
@@ -49,28 +49,41 @@ namespace CreditCardValidator
         {
             #region Populating
 
-            BrandsRules.Add(CardIssuer.Visa, new BrandInfo()
+            BrandsData.Add(CardIssuer.Visa, new BrandInfo()
             {
                 BrandName = "Visa",
                 Rules = new List<Rule>() 
                 { 
                     new Rule() 
                     { 
-                        lengths = new List<int>() { 13, 16 }, 
-                        prefixes = new List<string>() { "4" } 
+                        Lengths = new List<int>() { 13, 16 }, 
+                        Prefixes = new List<string>() { "4" } 
                     }
                 }
             });
 
-            BrandsRules.Add(CardIssuer.MasterCard, new BrandInfo()
+            BrandsData.Add(CardIssuer.MasterCard, new BrandInfo()
             {
                 BrandName = "MasterCard",
                 Rules = new List<Rule>() 
                 { 
                     new Rule() 
                     { 
-                        lengths = new List<int>() { 16 }, 
-                        prefixes = new List<string>() { "51", "52", "53", "54", "55" }
+                        Lengths = new List<int>() { 16 }, 
+                        Prefixes = new List<string>() { "51", "52", "53", "54", "55" }
+                    }
+                }
+            });
+
+            BrandsData.Add(CardIssuer.Unknown, new BrandInfo()
+            {
+                BrandName = "Unknown",
+                Rules = new List<Rule>() 
+                { 
+                    new Rule() 
+                    { 
+                        Lengths = new List<int>(), 
+                        Prefixes = new List<string>()
                     }
                 }
             });

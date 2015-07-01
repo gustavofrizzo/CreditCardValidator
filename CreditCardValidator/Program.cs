@@ -7,7 +7,6 @@ using System.Threading.Tasks;
 namespace CreditCardValidator
 {
 
-
     public class BrandInfo
     {
         public List<Rule> Rules;
@@ -17,7 +16,7 @@ namespace CreditCardValidator
         public BrandInfo()
         {
             Rules = new List<Rule>();
-            BrandName = "unkdown";
+            BrandName = "Unknown";
             SkipLuhn = false;
         }
 
@@ -25,19 +24,18 @@ namespace CreditCardValidator
 
     public class Rule
     {
-        public List<int> lengths;
-        public List<String> prefixes;
+        public List<int> Lengths;
+        public List<String> Prefixes;
 
         public Rule()
         {
-            lengths = new List<int>();
-            prefixes = new List<string>();
+            Lengths = new List<int>();
+            Prefixes = new List<string>();
         }
     }
 
     public class CreditCardDetector
     {
-        //private CardIssuer brand;
         private String _brandName;
         private String _cardNumber;
         private CardIssuer _cardIssuer;
@@ -48,27 +46,18 @@ namespace CreditCardValidator
             LoadCard();
         }
 
-        public String CardNumber
-        {
-            get
-            {
-                return _cardNumber;
-            }
-            private set { }
-        }
-
         private void LoadCard()
         {
-            foreach (var brandRules in CreditCardData.BrandsRules)
+            foreach (var brandData in CreditCardData.BrandsData)
             {
                 //All cardInfo from one brand.
-                var cardInfo = brandRules.Value;
+                var cardInfo = brandData.Value;
 
                 foreach (var rule in cardInfo.Rules)
                 {
-                    if (rule.lengths.Any(c => c == _cardNumber.Length) && rule.prefixes.Any(c => _cardNumber.StartsWith(c)))
+                    if (rule.Lengths.Any(c => c == _cardNumber.Length) && rule.Prefixes.Any(c => _cardNumber.StartsWith(c)))
                     {
-                        _cardIssuer = brandRules.Key;
+                        _cardIssuer = brandData.Key;
                         _brandName = cardInfo.BrandName;
                         return;
                     }
@@ -77,34 +66,40 @@ namespace CreditCardValidator
 
             _cardIssuer = CardIssuer.Unknown;
             _brandName = CardIssuer.Unknown.ToString();
+        }
 
+        public String CardNumber
+        {
+            get { return _cardNumber; }
+            private set { }
+        }
+
+        public bool IsValid
+        {
+            get
+            {
+                return CreditCardData.BrandsData[_cardIssuer].SkipLuhn ? true : Luhn.CheckLuhn(_cardNumber);
+            }
+            private set { }
         }
 
         public CardIssuer Brand
         {
-            get
-            {
-                return _cardIssuer;
-            }
+            get { return _cardIssuer; }
             private set { }
         }
 
         public String BrandName
         {
-            get
-            {
-                return _brandName;
-            }
+            get { return _brandName; }
             private set { }
         }
-
 
     }
 
 
     class Program
     {
-
 
         static void Main(String[] args)
         {
@@ -124,10 +119,10 @@ namespace CreditCardValidator
             }*/
 
             CreditCardDetector my = new CreditCardDetector("5499273565871632");
-            CreditCardDetector my2 = new CreditCardDetector("4992734871632");
+            CreditCardDetector my2 = new CreditCardDetector("49927398716");
 
-            Console.WriteLine(my.CardNumber + " - " + my.BrandName);
-            Console.WriteLine(my2.CardNumber + " - " + my2.BrandName);
+            Console.WriteLine(my.CardNumber + " - " + my.BrandName + " - " + my.IsValid);
+            Console.WriteLine(my2.CardNumber + " - " + my2.BrandName + " - " + my2.IsValid);
 
             Console.ReadKey();
         }
