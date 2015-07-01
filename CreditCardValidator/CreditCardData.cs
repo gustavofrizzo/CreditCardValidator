@@ -26,7 +26,7 @@ namespace CreditCardValidator
         NobodyKnows,
     }
 
-    public static class CreditCardData
+    internal static class CreditCardData
     {
         public static Dictionary<IssuingInstitutes, BrandInfo> BrandsRules = new Dictionary<IssuingInstitutes, BrandInfo>();
 
