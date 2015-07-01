@@ -6,7 +6,11 @@ using System.Threading.Tasks;
 
 namespace CreditCardValidator
 {
-    public enum IssuingInstitutes
+
+    /// <summary>
+    /// Issuing institutes accepted.
+    /// </summary>
+    public enum CardIssuer
     {
         AmericanExpress,
         ChinaUnionPay,
@@ -23,12 +27,12 @@ namespace CreditCardValidator
         Solo,
         Switch,
         Visa,
-        NobodyKnows,
+        Unknown,
     }
 
     internal static class CreditCardData
     {
-        public static Dictionary<IssuingInstitutes, BrandInfo> BrandsRules = new Dictionary<IssuingInstitutes, BrandInfo>();
+        public static Dictionary<CardIssuer, BrandInfo> BrandsRules;
 
         /// <summary>
         /// A static constructor is used to initialize any static data, or to perform a particular 
@@ -37,6 +41,7 @@ namespace CreditCardValidator
         /// </summary>
         static CreditCardData()
         {
+            BrandsRules = new Dictionary<CardIssuer, BrandInfo>();
             LoadData();
         }
 
@@ -44,7 +49,7 @@ namespace CreditCardValidator
         {
             #region Populating
 
-            BrandsRules.Add(IssuingInstitutes.Visa, new BrandInfo()
+            BrandsRules.Add(CardIssuer.Visa, new BrandInfo()
             {
                 BrandName = "Visa",
                 Rules = new List<Rule>() 
@@ -57,7 +62,7 @@ namespace CreditCardValidator
                 }
             });
 
-            BrandsRules.Add(IssuingInstitutes.MasterCard, new BrandInfo()
+            BrandsRules.Add(CardIssuer.MasterCard, new BrandInfo()
             {
                 BrandName = "MasterCard",
                 Rules = new List<Rule>() 

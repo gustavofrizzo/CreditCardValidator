@@ -37,44 +37,54 @@ namespace CreditCardValidator
 
     public class CreditCardDetector
     {
-        //private IssuingInstitutes brand;
-        private String brandName;
-        private String cardNumber;
+        //private CardIssuer brand;
+        private String _brandName;
+        private String _cardNumber;
+        private CardIssuer _cardIssuer;
 
-        public CreditCardDetector(String number)
+        public CreditCardDetector(String cardNumber)
         {
-            cardNumber = number;
+            _cardNumber = cardNumber;
+            LoadCard();
         }
 
         public String CardNumber
         {
             get
             {
-                return cardNumber;
+                return _cardNumber;
             }
             private set { }
         }
 
-        public IssuingInstitutes Brand
+        private void LoadCard()
+        {
+            foreach (var brandRules in CreditCardData.BrandsRules)
+            {
+                //All cardInfo from one brand.
+                var cardInfo = brandRules.Value;
+
+                foreach (var rule in cardInfo.Rules)
+                {
+                    if (rule.lengths.Any(c => c == _cardNumber.Length) && rule.prefixes.Any(c => _cardNumber.StartsWith(c)))
+                    {
+                        _cardIssuer = brandRules.Key;
+                        _brandName = cardInfo.BrandName;
+                        return;
+                    }
+                }
+            }
+
+            _cardIssuer = CardIssuer.Unknown;
+            _brandName = CardIssuer.Unknown.ToString();
+
+        }
+
+        public CardIssuer Brand
         {
             get
             {
-                var rules = CreditCardData.BrandsRules;
-
-                foreach (var rule in rules)
-                {
-                    var r = rule.Value.Rules;
-
-                    foreach (var r2 in r)
-                    {
-                        if (r2.lengths.Any(c => c == cardNumber.Length) && r2.prefixes.Any(c => cardNumber.StartsWith(c)))
-                        {
-                            return rule.Key;
-                        }
-                    }
-                }
-
-                return IssuingInstitutes.NobodyKnows;
+                return _cardIssuer;
             }
             private set { }
         }
@@ -83,22 +93,7 @@ namespace CreditCardValidator
         {
             get
             {
-                var rules = CreditCardData.BrandsRules;
-
-                foreach (var rule in rules)
-                {
-                    var r = rule.Value.Rules;
-
-                    foreach (var r2 in r)
-                    {
-                        if (r2.lengths.Any(c => c == cardNumber.Length) && r2.prefixes.Any(c => cardNumber.StartsWith(c)))
-                        {
-                            return rule.Value.BrandName;
-                        }
-                    }
-                }
-
-                return "NobodyKnows";
+                return _brandName;
             }
             private set { }
         }
