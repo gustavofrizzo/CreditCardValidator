@@ -30,7 +30,7 @@ namespace CreditCardValidator
         public Rule()
         {
             Lengths = new List<int>();
-            Prefixes = new List<string>();
+            Prefixes = new List<String>();
         }
     }
 
@@ -95,6 +95,15 @@ namespace CreditCardValidator
             private set { }
         }
 
+        public String IssuerCategory
+        {
+            get
+            {
+                return MajorIndustryIdentifier.Categories[Convert.ToInt32(_cardNumber.First().ToString())];
+            }
+            private set { }
+        }
+
     }
 
 
@@ -121,8 +130,8 @@ namespace CreditCardValidator
             CreditCardDetector my = new CreditCardDetector("5499273565871632");
             CreditCardDetector my2 = new CreditCardDetector("49927398716");
 
-            Console.WriteLine(my.CardNumber + " - " + my.BrandName + " - " + my.IsValid);
-            Console.WriteLine(my2.CardNumber + " - " + my2.BrandName + " - " + my2.IsValid);
+            Console.WriteLine(my.CardNumber + " - " + my.BrandName + " - " + my.IsValid + " - " + my.IssuerCategory);
+            Console.WriteLine(my2.CardNumber + " - " + my2.BrandName + " - " + my2.IsValid + " - " + my2.IssuerCategory);
 
             Console.ReadKey();
         }

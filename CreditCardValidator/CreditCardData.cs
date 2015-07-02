@@ -57,7 +57,7 @@ namespace CreditCardValidator
                     new Rule() 
                     { 
                         Lengths = new List<int>() { 13, 16 }, 
-                        Prefixes = new List<string>() { "4" } 
+                        Prefixes = new List<String>() { "4" } 
                     }
                 }
             });
@@ -70,7 +70,7 @@ namespace CreditCardValidator
                     new Rule() 
                     { 
                         Lengths = new List<int>() { 16 }, 
-                        Prefixes = new List<string>() { "51", "52", "53", "54", "55" }
+                        Prefixes = new List<String>() { "51", "52", "53", "54", "55" }
                     }
                 }
             });
@@ -83,7 +83,7 @@ namespace CreditCardValidator
                     new Rule() 
                     { 
                         Lengths = new List<int>(), 
-                        Prefixes = new List<string>()
+                        Prefixes = new List<String>()
                     }
                 }
             });
