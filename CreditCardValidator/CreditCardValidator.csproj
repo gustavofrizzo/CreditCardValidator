@@ -46,6 +46,7 @@
     <Compile Include="CreditCardData.cs" />
     <Compile Include="CreditCardDetector.cs" />
     <Compile Include="CreditCardFactory.cs" />
+    <Compile Include="CreditCardStringExtension.cs" />
     <Compile Include="Luhn.cs" />
     <Compile Include="MajorIndustryIdentifier.cs" />
     <Compile Include="Program.cs" />

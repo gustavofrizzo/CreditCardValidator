@@ -35,20 +35,23 @@ namespace CreditCardValidator
             Console.WriteLine();
 
             
-            Console.WriteLine(Luhn.CheckLuhn("5543548990584147"));
+            /*Console.WriteLine(Luhn.CheckLuhn("5543548990584147"));
             Console.WriteLine(Luhn.CheckLuhn("6011860911436872"));
             Console.WriteLine(Luhn.CheckLuhn("6331101999990016"));
-            Console.WriteLine(Luhn.CheckLuhn("4222222222222"));
+            Console.WriteLine(Luhn.CheckLuhn("4222222222222"));*/
 
 
-            Console.WriteLine("4539877049525937" + " " + Luhn.CreateCheckDigit("453987704952593"));
+            /*Console.WriteLine("4539877049525937" + " " + Luhn.CreateCheckDigit("453987704952593"));
             Console.WriteLine("6331101999990016" + " " + Luhn.CreateCheckDigit("633110199999001"));
-            Console.WriteLine("6011860911436872" + " " + Luhn.CreateCheckDigit("601186091143687"));
+            Console.WriteLine("6011860911436872" + " " + Luhn.CreateCheckDigit("601186091143687"));*/
 
+            Console.WriteLine("5239088204232455".CreditCardBrand());
+            Console.WriteLine("5239088204232455".CreditCardBrandName());
+            Console.WriteLine("5239088204232455".ValidCreditCardBrand(CardIssuer.MasterCard));
 
-            for (int i = 0; i < 100; i++)
+            for (int i = 0; i < 2; i++)
             {
-                var a = CreditCardFactory.RandomCardNumber(CardIssuer.Unknown);
+                var a = CreditCardFactory.RandomCardNumber(CardIssuer.MasterCard);
                 Console.WriteLine(a + " " + Luhn.CheckLuhn(a));
             }
 
