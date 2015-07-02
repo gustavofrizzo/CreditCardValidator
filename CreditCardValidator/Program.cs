@@ -31,10 +31,10 @@ namespace CreditCardValidator
 
             Console.WriteLine(my.CardNumber + " - " + my.BrandName + " - " + my.IsValid(CardIssuer.Visa, CardIssuer.MasterCard) + " - " + my.IssuerCategory);
             Console.WriteLine(my2.CardNumber + " - " + my2.BrandName + " - " + my2.IsValid() + " - " + my2.IssuerCategory);
-            
+
             Console.WriteLine();
 
-            
+
             /*Console.WriteLine(Luhn.CheckLuhn("5543548990584147"));
             Console.WriteLine(Luhn.CheckLuhn("6011860911436872"));
             Console.WriteLine(Luhn.CheckLuhn("6331101999990016"));
@@ -49,13 +49,15 @@ namespace CreditCardValidator
             Console.WriteLine("5239088204232455".CreditCardBrandName());
             Console.WriteLine("5239088204232455".ValidCreditCardBrand(CardIssuer.MasterCard));
 
-            for (int i = 0; i < 2; i++)
+            /*for (int i = 0; i < 60000; i++)
             {
                 var a = CreditCardFactory.RandomCardNumber(CardIssuer.MasterCard);
-                Console.WriteLine(a + " " + Luhn.CheckLuhn(a));
+                if (!Luhn.CheckLuhn(a))
+                    Console.WriteLine(a + " " + Luhn.CheckLuhn(a));
             }
+            Console.WriteLine("End");*/
 
-                Console.ReadKey();
+            Console.ReadKey();
         }
     }
 }
