@@ -16,6 +16,8 @@ namespace CreditCardUnitTest
 
             Assert.IsTrue(card.Brand == CardIssuer.MasterCard);
             Assert.IsTrue(card.IsValid(CardIssuer.MasterCard));
+            Assert.IsTrue(card.IsValid());
+            Assert.IsFalse(card.IsValid(CardIssuer.Visa));
         }
     }
 }
