@@ -6,7 +6,6 @@ using System.Threading.Tasks;
 
 namespace CreditCardValidator
 {
-
     /// <summary>
     /// Issuing institutes accepted.
     /// </summary>
@@ -82,7 +81,7 @@ namespace CreditCardValidator
                 { 
                     new Rule() 
                     { 
-                        Lengths = new List<int>(), 
+                        Lengths = new List<int>() { 15 }, 
                         Prefixes = new List<String>()
                     }
                 }

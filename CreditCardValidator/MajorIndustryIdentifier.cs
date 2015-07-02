@@ -28,9 +28,9 @@ namespace CreditCardValidator
     /// <summary>
     /// Implements Major Industry Identifier (MII) detection.
     /// </summary>
-    class MajorIndustryIdentifier
+    internal class MajorIndustryIdentifier
     {
-        public static Dictionary<int, String> Categories = new Dictionary<int, String>();
+        internal static Dictionary<int, String> Categories = new Dictionary<int, String>();
 
         static MajorIndustryIdentifier()
         {

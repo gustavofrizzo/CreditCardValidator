@@ -32,9 +32,17 @@ namespace CreditCardValidator
             return checkSum % 10 == 0;
         }
 
-        public static String CreateCheckDigit()
+        public static String CreateCheckDigit(String number)
         {
-            throw new NotImplementedException();
+            var digitsSum = number
+                .Reverse()
+                .Select(charToInt)
+                .Select((digit, index) => isEven(index) ? doubleDigit(digit) : digit)
+                .Sum();
+
+            digitsSum = digitsSum * 9;
+
+            return digitsSum.ToString().Last().ToString();
         }
     }
 }

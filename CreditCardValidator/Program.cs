@@ -6,107 +6,6 @@ using System.Threading.Tasks;
 
 namespace CreditCardValidator
 {
-
-    public class BrandInfo
-    {
-        public List<Rule> Rules;
-        public String BrandName;
-        public bool SkipLuhn;
-
-        public BrandInfo()
-        {
-            Rules = new List<Rule>();
-            BrandName = "Unknown";
-            SkipLuhn = false;
-        }
-
-    }
-
-    public class Rule
-    {
-        public List<int> Lengths;
-        public List<String> Prefixes;
-
-        public Rule()
-        {
-            Lengths = new List<int>();
-            Prefixes = new List<String>();
-        }
-    }
-
-    public class CreditCardDetector
-    {
-        private String _brandName;
-        private String _cardNumber;
-        private CardIssuer _cardIssuer;
-
-        public CreditCardDetector(String cardNumber)
-        {
-            _cardNumber = cardNumber;
-            LoadCard();
-        }
-
-        private void LoadCard()
-        {
-            foreach (var brandData in CreditCardData.BrandsData)
-            {
-                //All cardInfo from one brand.
-                var cardInfo = brandData.Value;
-
-                foreach (var rule in cardInfo.Rules)
-                {
-                    if (rule.Lengths.Any(c => c == _cardNumber.Length) && rule.Prefixes.Any(c => _cardNumber.StartsWith(c)))
-                    {
-                        _cardIssuer = brandData.Key;
-                        _brandName = cardInfo.BrandName;
-                        return;
-                    }
-                }
-            }
-
-            _cardIssuer = CardIssuer.Unknown;
-            _brandName = CardIssuer.Unknown.ToString();
-        }
-
-        public String CardNumber
-        {
-            get { return _cardNumber; }
-            private set { }
-        }
-
-        public bool IsValid
-        {
-            get
-            {
-                return CreditCardData.BrandsData[_cardIssuer].SkipLuhn ? true : Luhn.CheckLuhn(_cardNumber);
-            }
-            private set { }
-        }
-
-        public CardIssuer Brand
-        {
-            get { return _cardIssuer; }
-            private set { }
-        }
-
-        public String BrandName
-        {
-            get { return _brandName; }
-            private set { }
-        }
-
-        public String IssuerCategory
-        {
-            get
-            {
-                return MajorIndustryIdentifier.Categories[Convert.ToInt32(_cardNumber.First().ToString())];
-            }
-            private set { }
-        }
-
-    }
-
-
     class Program
     {
 
@@ -114,11 +13,11 @@ namespace CreditCardValidator
         {
             Console.WriteLine("Hi");
 
-            Console.WriteLine(Luhn.CheckLuhn("79927398713")); //true
+            /*Console.WriteLine(Luhn.CheckLuhn("79927398713")); //true
             Console.WriteLine(Luhn.CheckLuhn("378282246310005")); //true
             Console.WriteLine(Luhn.CheckLuhn("601111511111111437")); //false
             Console.WriteLine(Luhn.CheckLuhn("49927398716")); //true
-
+            */
             /*using (StreamReader r = new StreamReader("Brands.json"))
             {
                 string json = r.ReadToEnd();
@@ -127,13 +26,33 @@ namespace CreditCardValidator
                 Console.WriteLine(aa.mastercard);
             }*/
 
-            CreditCardDetector my = new CreditCardDetector("5499273565871632");
-            CreditCardDetector my2 = new CreditCardDetector("49927398716");
+            CreditCardDetector my = new CreditCardDetector("5239088204232455");
+            CreditCardDetector my2 = new CreditCardDetector("4111111111111111");
 
-            Console.WriteLine(my.CardNumber + " - " + my.BrandName + " - " + my.IsValid + " - " + my.IssuerCategory);
-            Console.WriteLine(my2.CardNumber + " - " + my2.BrandName + " - " + my2.IsValid + " - " + my2.IssuerCategory);
+            Console.WriteLine(my.CardNumber + " - " + my.BrandName + " - " + my.IsValid(CardIssuer.Visa, CardIssuer.MasterCard) + " - " + my.IssuerCategory);
+            Console.WriteLine(my2.CardNumber + " - " + my2.BrandName + " - " + my2.IsValid() + " - " + my2.IssuerCategory);
+            
+            Console.WriteLine();
 
-            Console.ReadKey();
+            
+            Console.WriteLine(Luhn.CheckLuhn("5543548990584147"));
+            Console.WriteLine(Luhn.CheckLuhn("6011860911436872"));
+            Console.WriteLine(Luhn.CheckLuhn("6331101999990016"));
+            Console.WriteLine(Luhn.CheckLuhn("4222222222222"));
+
+
+            Console.WriteLine("4539877049525937" + " " + Luhn.CreateCheckDigit("453987704952593"));
+            Console.WriteLine("6331101999990016" + " " + Luhn.CreateCheckDigit("633110199999001"));
+            Console.WriteLine("6011860911436872" + " " + Luhn.CreateCheckDigit("601186091143687"));
+
+
+            for (int i = 0; i < 100; i++)
+            {
+                var a = CreditCardFactory.RandomCardNumber(CardIssuer.Unknown);
+                Console.WriteLine(a + " " + Luhn.CheckLuhn(a));
+            }
+
+                Console.ReadKey();
         }
     }
 }
