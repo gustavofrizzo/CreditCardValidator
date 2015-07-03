@@ -12,7 +12,6 @@ namespace CreditCardValidator
         ChinaUnionPay,
         Dankort,
         DinersClub,
-        /*DinersClubUS,*/
         Discover,
         Hipercard,
         JCB,
@@ -258,19 +257,6 @@ namespace CreditCardValidator
                     }
                 }
             });
-
-            /*BrandsData.Add(CardIssuer., new BrandInfo()
-            {
-                BrandName = "",
-                Rules = new List<Rule>() 
-                { 
-                    new Rule() 
-                    { 
-                        Lengths = new List<int>() {  }, 
-                        Prefixes = new List<String>() {  }
-                    }
-                }
-            });*/
 
             BrandsData.Add(CardIssuer.Unknown, new BrandInfo()
             {

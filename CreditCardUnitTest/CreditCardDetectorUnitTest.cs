@@ -37,7 +37,7 @@ namespace CreditCardUnitTest
         [ExpectedException(typeof(ArgumentException))]
         public void InvalidNumbers_CreditCardDetector()
         {
-            String invalidNumber = "";
+            String invalidNumber = "411111-11h1111";
 
             CreditCardDetector detc = new CreditCardDetector(invalidNumber);
         }
