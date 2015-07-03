@@ -96,19 +96,6 @@ namespace CreditCardValidator
                 }
             });
 
-            /*BrandsData.Add(CardIssuer.DinersClubUS, new BrandInfo()
-            {
-                BrandName = "Diners Club US",
-                Rules = new List<Rule>() 
-                { 
-                    new Rule() 
-                    { 
-                        Lengths = new List<int>() { 16 }, 
-                        Prefixes = new List<String>() { "54", "55" }
-                    }
-                }
-            });*/
-
             BrandsData.Add(CardIssuer.Discover, new BrandInfo()
             {
                 BrandName = "Discover",
@@ -270,6 +257,19 @@ namespace CreditCardValidator
                     }
                 }
             });
+
+            /*BrandsData.Add(CardIssuer., new BrandInfo()
+            {
+                BrandName = "",
+                Rules = new List<Rule>() 
+                { 
+                    new Rule() 
+                    { 
+                        Lengths = new List<int>() {  }, 
+                        Prefixes = new List<String>() {  }
+                    }
+                }
+            });*/
 
 
             #endregion
