@@ -12,7 +12,7 @@ namespace CreditCardValidator
         ChinaUnionPay,
         Dankort,
         DinersClub,
-        DinersClubUS,
+        /*DinersClubUS,*/
         Discover,
         Hipercard,
         JCB,
@@ -97,7 +97,7 @@ namespace CreditCardValidator
                 }
             });
 
-            BrandsData.Add(CardIssuer.DinersClubUS, new BrandInfo()
+            /*BrandsData.Add(CardIssuer.DinersClubUS, new BrandInfo()
             {
                 BrandName = "Diners Club US",
                 Rules = new List<Rule>() 
@@ -108,7 +108,7 @@ namespace CreditCardValidator
                         Prefixes = new List<String>() { "54", "55" }
                     }
                 }
-            });
+            });*/
 
             BrandsData.Add(CardIssuer.Discover, new BrandInfo()
             {
@@ -234,6 +234,7 @@ namespace CreditCardValidator
             BrandsData.Add(CardIssuer.Rupay, new BrandInfo()
             {
                 BrandName = "Rupay",
+                SkipLuhn = true,
                 Rules = new List<Rule>() 
                 { 
                     new Rule() 

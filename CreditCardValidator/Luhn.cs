@@ -1,4 +1,5 @@
-﻿using System;
+﻿using CreditCardValidator.Helpers;
+using System;
 using System.Linq;
 
 namespace CreditCardValidator
@@ -20,7 +21,11 @@ namespace CreditCardValidator
         /// <returns></returns>
         public static bool CheckLuhn(String creditCardNumber)
         {
+            if (!ValidationHelper.IsAValidNumber(creditCardNumber))
+                throw new ArgumentException("Invalid number. Just numbers and white spaces are accepted on the string.");
+
             var checkSum = creditCardNumber
+                .RemoveWhiteSpace()
                 .Select(charToInt)
                 .Reverse()
                 .Select((digit, index) => isEven(index + 1) ? doubleDigit(digit) : digit)
@@ -31,7 +36,11 @@ namespace CreditCardValidator
 
         public static String CreateCheckDigit(String number)
         {
+            if (!ValidationHelper.IsAValidNumber(number))
+                throw new ArgumentException("Invalid number. Just numbers and white spaces are accepted on the string.");
+
             var digitsSum = number
+                .RemoveWhiteSpace()
                 .Reverse()
                 .Select(charToInt)
                 .Select((digit, index) => isEven(index) ? doubleDigit(digit) : digit)
