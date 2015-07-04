@@ -58,6 +58,7 @@
     <Compile Include="CreditCardFactoryUnitTest.cs" />
     <Compile Include="LuhnUnitTest.cs" />
     <Compile Include="CreditCardDetectorUnitTest.cs" />
+    <Compile Include="CreditCardStringExtensionUnitTest.cs" />
   </ItemGroup>
   <ItemGroup>
     <ProjectReference Include="..\CreditCardValidator\CreditCardValidator.csproj">
