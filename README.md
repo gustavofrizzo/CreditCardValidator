@@ -38,7 +38,7 @@ Generate random credit card numbers from an specific CardIssuer.
 
 ```csharp
 string visaNumber = CreditCardFactory.RandomCardNumber(CardIssuer.Visa);
-string americanExpressNumber = CreditCardFactory.RandomCardNumber(CardIssuer.AmericanExpress);
+string amexNumber = CreditCardFactory.RandomCardNumber(CardIssuer.AmericanExpress);
 string masterCardNumber = CreditCardFactory.RandomCardNumber(CardIssuer.MasterCard);
 string chinaUnionPayNumber = CreditCardFactory.RandomCardNumber(CardIssuer.ChinaUnionPay);
 ```
