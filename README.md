@@ -2,6 +2,8 @@
 
 CreditCardValidator helps you implementing validations for the most common credit card brands, verifying length, prefixes and checking the card number through the Luhn algorithm if necessary.
 
+Nuget Package -> https://www.nuget.org/packages/CreditCardValidator
+
 ## Issuing network Supported 
 
 The following issuing institutes are supported:
@@ -65,3 +67,11 @@ string chinaUnionPayNumber = CreditCardFactory.RandomCardNumber(CardIssuer.China
 Luhn.CheckLuhn("4953089013607"); // => True
 Luhn.CreateCheckDigit("495308901360"); // => 7
 ```
+
+## Contributing
+
+1. Fork it
+2. Create your feature branch (`git checkout -b my-new-feature`)
+3. Commit your changes (`git commit -am 'Add some feature'`)
+4. Push to the branch (`git push origin my-new-feature`)
+5. Create new Pull Request
