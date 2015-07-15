@@ -18,7 +18,7 @@ namespace CreditCardValidator
         Laser,
         Maestro,
         MasterCard,
-        Rupay,
+        RuPay,
         Solo,
         Switch,
         Visa,
@@ -217,9 +217,9 @@ namespace CreditCardValidator
                 }
             });
 
-            BrandsData.Add(CardIssuer.Rupay, new BrandInfo()
+            BrandsData.Add(CardIssuer.RuPay, new BrandInfo()
             {
-                BrandName = "Rupay",
+                BrandName = "RuPay",
                 SkipLuhn = true,
                 Rules = new List<Rule>() 
                 { 
@@ -234,7 +234,7 @@ namespace CreditCardValidator
 
             BrandsData.Add(CardIssuer.Hipercard, new BrandInfo()
             {
-                BrandName = "19",
+                BrandName = "Hipercard",
                 Rules = new List<Rule>() 
                 { 
                     new Rule() 
