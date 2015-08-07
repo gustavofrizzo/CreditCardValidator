@@ -6,87 +6,61 @@ namespace CreditCardValidator
 {
     public class CreditCardDetector
     {
-        private String _brandName;
-        private String _cardNumber;
-        private CardIssuer _cardIssuer;
-
-        public CreditCardDetector(String cardNumber)
+        public CreditCardDetector(string cardNumber)
         {
             if (!ValidationHelper.IsAValidNumber(cardNumber))
+            {
                 throw new ArgumentException("Invalid number. Just numbers and white spaces are accepted on the string.");
+            }
 
-            _cardNumber = cardNumber.RemoveWhiteSpace();
+            CardNumber = cardNumber.RemoveWhiteSpace();
             LoadCard();
+        }
+
+        public string CardNumber { get; private set; }
+        public CardIssuer Brand { get; private set; }
+        public string BrandName { get; private set; }
+
+        public string IssuerCategory
+        {
+            get { return MajorIndustryIdentifier.Categories[Convert.ToInt32(CardNumber[0].ToString())]; }
         }
 
         private void LoadCard()
         {
             foreach (var brandData in CreditCardData.BrandsData)
             {
-                //cardInfo from one brand.
+                // CardInfo from one brand.
                 var cardInfo = brandData.Value;
 
                 foreach (var rule in cardInfo.Rules)
                 {
-                    if (rule.Lengths.Any(c => c == _cardNumber.Length) && rule.Prefixes.Any(c => _cardNumber.StartsWith(c)))
+                    if (rule.Lengths.Any(c => c == CardNumber.Length) &&
+                        rule.Prefixes.Any(c => CardNumber.StartsWith(c)))
                     {
-                        _cardIssuer = brandData.Key;
-                        _brandName = cardInfo.BrandName;
+                        Brand = brandData.Key;
+                        BrandName = cardInfo.BrandName;
                         return;
                     }
                 }
             }
 
-            _cardIssuer = CardIssuer.Unknown;
-            _brandName = CardIssuer.Unknown.ToString();
-        }
-
-        public String CardNumber
-        {
-            get { return _cardNumber; }
-            private set { }
+            Brand = CardIssuer.Unknown;
+            BrandName = CardIssuer.Unknown.ToString();
         }
 
         public bool IsValid()
         {
-            //The Brand rules were already checked by LoadCard(). So, if a card has a brand, means
+            // The Brand rules were already checked by LoadCard(). So, if a card has a brand, means
             // that the number meet at least one of the rule requirements.
-            return CreditCardData.BrandsData[_cardIssuer].SkipLuhn ? true : Luhn.CheckLuhn(_cardNumber);
+            return CreditCardData.BrandsData[Brand].SkipLuhn ||
+                   Luhn.CheckLuhn(CardNumber);
         }
-
 
         public bool IsValid(params CardIssuer[] issuers)
         {
-            foreach (var issuer in issuers)
-            {
-                if (issuer == _cardIssuer && this.IsValid())
-                    return true;
-            }
-
-            return false;
+            return issuers.Any(issuer => issuer == Brand &&
+                                         IsValid());
         }
-
-
-        public CardIssuer Brand
-        {
-            get { return _cardIssuer; }
-            private set { }
-        }
-
-        public String BrandName
-        {
-            get { return _brandName; }
-            private set { }
-        }
-
-        public String IssuerCategory
-        {
-            get
-            {
-                return MajorIndustryIdentifier.Categories[Convert.ToInt32(_cardNumber[0].ToString())];
-            }
-            private set { }
-        }
-
     }
 }

@@ -1,5 +1,4 @@
-﻿using System;
-using System.Collections.Generic;
+﻿using System.Collections.Generic;
 
 namespace CreditCardValidator
 {
@@ -27,20 +26,18 @@ namespace CreditCardValidator
     /// </summary>
     internal class MajorIndustryIdentifier
     {
-        internal static Dictionary<int, String> Categories = new Dictionary<int, String>();
-
-        static MajorIndustryIdentifier()
+        internal static IDictionary<int, string> Categories = new Dictionary<int, string>
         {
-            Categories.Add(0, "ISO/TC 68 and other future industry assignments");
-            Categories.Add(1, "Airlines");
-            Categories.Add(2, "Airlines and other future industry assignments");
-            Categories.Add(3, "Travel and entertainment and banking/financial");
-            Categories.Add(4, "Banking and financial");
-            Categories.Add(5, "Banking and financial");
-            Categories.Add(6, "Merchandising and banking/financial");
-            Categories.Add(7, "Petroleum and other future industry assignments");
-            Categories.Add(8, "Healthcare, telecommunications and other future industry assignments");
-            Categories.Add(9, "National assignment");
-        }
+            {0, "ISO/TC 68 and other future industry assignments"},
+            {1, "Airlines"},
+            {2, "Airlines and other future industry assignments"},
+            {3, "Travel and entertainment and banking/financial"},
+            {4, "Banking and financial"},
+            {5, "Banking and financial"},
+            {6, "Merchandising and banking/financial"},
+            {7, "Petroleum and other future industry assignments"},
+            {8, "Healthcare, telecommunications and other future industry assignments"},
+            {9, "National assignment"}
+        };
     }
 }

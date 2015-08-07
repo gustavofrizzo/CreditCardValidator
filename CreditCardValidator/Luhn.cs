@@ -6,51 +6,59 @@ namespace CreditCardValidator
 {
     public static class Luhn
     {
-        //Convert to int
-        private static Func<char, int> charToInt = c => c - '0';
+        // Convert to int.
+        private static readonly Func<char, int> CharToInt = c => c - '0';
 
-        private static Func<int, bool> isEven = i => i % 2 == 0;
+        private static readonly Func<int, bool> IsEven = i => i % 2 == 0;
 
-        //New Double Concept => 7 * 2 = 14 => 1 + 4 = 5
-        private static Func<int, int> doubleDigit = i => (i * 2).ToString().ToCharArray().Select(charToInt).Sum();
+        // New Double Concept => 7 * 2 = 14 => 1 + 4 = 5.
+        private static readonly Func<int, int> DoubleDigit = i => (i * 2).ToString().ToCharArray().Select(CharToInt).Sum();
 
         /// <summary>
         /// Verify if the card number is valid.
         /// </summary>
         /// <param name="creditCardNumber"></param>
         /// <returns></returns>
-        public static bool CheckLuhn(String creditCardNumber)
+        public static bool CheckLuhn(string creditCardNumber)
         {
             if (!ValidationHelper.IsAValidNumber(creditCardNumber))
+            {
                 throw new ArgumentException("Invalid number. Just numbers and white spaces are accepted on the string.");
+            }
 
             var checkSum = creditCardNumber
                 .RemoveWhiteSpace()
                 .ToCharArray()
-                .Select(charToInt)
+                .Select(CharToInt)
                 .Reverse()
-                .Select((digit, index) => isEven(index + 1) ? doubleDigit(digit) : digit)
+                .Select((digit, index) => IsEven(index + 1) ? DoubleDigit(digit) : digit)
                 .Sum();
 
             return checkSum % 10 == 0;
         }
 
-        public static String CreateCheckDigit(String number)
+        public static string CreateCheckDigit(string number)
         {
             if (!ValidationHelper.IsAValidNumber(number))
+            {
                 throw new ArgumentException("Invalid number. Just numbers and white spaces are accepted on the string.");
+            }
 
             var digitsSum = number
                 .RemoveWhiteSpace()
                 .ToCharArray()
                 .Reverse()
-                .Select(charToInt)
-                .Select((digit, index) => isEven(index) ? doubleDigit(digit) : digit)
+                .Select(CharToInt)
+                .Select((digit, index) => IsEven(index) ? DoubleDigit(digit) : digit)
                 .Sum();
 
             digitsSum = digitsSum * 9;
 
-            return digitsSum.ToString().ToCharArray().Last().ToString();
+            return digitsSum
+                .ToString()
+                .ToCharArray()
+                .Last()
+                .ToString();
         }
     }
 }

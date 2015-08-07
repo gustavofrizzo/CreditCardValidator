@@ -1,19 +1,18 @@
-﻿using System;
-using System.Collections.Generic;
+﻿using System.Collections.Generic;
 
 namespace CreditCardValidator
 {
     internal class BrandInfo
     {
-        public List<Rule> Rules;
-        public String BrandName;
-        public bool SkipLuhn;
-
         public BrandInfo()
         {
             Rules = new List<Rule>();
             BrandName = "Unknown";
             SkipLuhn = false;
         }
+
+        public List<Rule> Rules { get; set; }
+        public string BrandName { get; set; }
+        public bool SkipLuhn { get; set; }
     }
 }
