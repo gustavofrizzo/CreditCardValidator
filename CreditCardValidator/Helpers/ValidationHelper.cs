@@ -9,7 +9,7 @@ namespace CreditCardValidator.Helpers
         {
             number = number.RemoveWhiteSpace();
 
-            return (number.All(Char.IsNumber) && !String.IsNullOrEmpty(number));
+            return (number.ToCharArray().All(Char.IsNumber) && !String.IsNullOrEmpty(number));
         }
     }
 }

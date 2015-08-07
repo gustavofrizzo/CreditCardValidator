@@ -12,7 +12,7 @@ namespace CreditCardValidator
         private static Func<int, bool> isEven = i => i % 2 == 0;
 
         //New Double Concept => 7 * 2 = 14 => 1 + 4 = 5
-        private static Func<int, int> doubleDigit = i => (i * 2).ToString().Select(charToInt).Sum();
+        private static Func<int, int> doubleDigit = i => (i * 2).ToString().ToCharArray().Select(charToInt).Sum();
 
         /// <summary>
         /// Verify if the card number is valid.
@@ -26,6 +26,7 @@ namespace CreditCardValidator
 
             var checkSum = creditCardNumber
                 .RemoveWhiteSpace()
+                .ToCharArray()
                 .Select(charToInt)
                 .Reverse()
                 .Select((digit, index) => isEven(index + 1) ? doubleDigit(digit) : digit)
@@ -41,6 +42,7 @@ namespace CreditCardValidator
 
             var digitsSum = number
                 .RemoveWhiteSpace()
+                .ToCharArray()
                 .Reverse()
                 .Select(charToInt)
                 .Select((digit, index) => isEven(index) ? doubleDigit(digit) : digit)
@@ -48,7 +50,7 @@ namespace CreditCardValidator
 
             digitsSum = digitsSum * 9;
 
-            return digitsSum.ToString().Last().ToString();
+            return digitsSum.ToString().ToCharArray().Last().ToString();
         }
     }
 }

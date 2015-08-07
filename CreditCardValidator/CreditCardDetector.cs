@@ -83,7 +83,7 @@ namespace CreditCardValidator
         {
             get
             {
-                return MajorIndustryIdentifier.Categories[Convert.ToInt32(_cardNumber.First().ToString())];
+                return MajorIndustryIdentifier.Categories[Convert.ToInt32(_cardNumber[0].ToString())];
             }
             private set { }
         }
