@@ -69,14 +69,19 @@
   </Choose>
   <ItemGroup>
     <Compile Include="CreditCardFactoryTests.cs" />
+    <Compile Include="LuhnTests.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
-    <Compile Include="CreditCardFactoryUnitTest.cs" />
-    <Compile Include="LuhnUnitTest.cs" />
     <Compile Include="CreditCardDetectorTests.cs" />
-    <Compile Include="CreditCardStringExtensionUnitTest.cs" />
+    <Compile Include="CreditCardStringExtensionTests.cs" />
     <Compile Include="TestHelperUtilities.cs" />
   </ItemGroup>
   <ItemGroup>
+    <None Include="Data\LuhnCheckDigits.json">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </None>
+    <None Include="Data\LuhnNumbers.json">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </None>
     <None Include="Data\ValidCards.json">
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
     </None>

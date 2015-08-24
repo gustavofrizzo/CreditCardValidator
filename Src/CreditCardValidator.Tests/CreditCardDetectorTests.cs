@@ -10,13 +10,13 @@ namespace CreditCardUnitTest
     {
         public class ConstructorTests
         {
-            public static TheoryData<KeyValuePair<string, string[]>> ValidCardData
+            public static TheoryData<KeyValuePair<string, string[]>> CreditCards
             {
-                get { return TestHelperUtilities.ValidCardData; }
+                get { return TestHelperUtilities.CreditCards(); }
             }
 
             [Theory]
-            [MemberData("ValidCardData")]
+            [MemberData("CreditCards")]
             public void GivenANumber_Constructor_CreatesANewInstance(KeyValuePair<string, string[]> data)
             {
                 // Arrange.
