@@ -1,5 +1,4 @@
-﻿
-############################################################################
+﻿############################################################################
 ###                                                                      ###
 ###                    NUGET  PACKAGE and PUBLISH                        ###
 ###                                                                      ###
@@ -12,35 +11,52 @@ param (
   [string]$apiKey = "",
   [string]$source = $PSScriptRoot,
   [string]$destination = $PSScriptRoot,
-  [string]$pushSource = "https://nuget.org",
+  [string]$feedSource = "https://nuget.org",
   [string]$nuget = "",
-  [bool]$clean = $false
+  [switch]$clean = $false,
+  [switch]$help = $false
 )
+
+function DisplayHelp()
+{
+    "Available command line arguments:"
+    "    =>     version: Please use SemVer."
+    "    =>      source: Directory location of the nuspec file(s). Default: current directory."
+    "    => destination: Directory location where the nupkg files will be saved. Default: current directory."
+    "    =>       nuget: Full path of where NuGet.exe is located (if not in PATH, etc). Default: none."
+    "    =>  feedSource: Url of the feed to publish the package(s) to. Default: https://nuget.org"
+    "    =>     api key: Feed secret api key. Default: none."
+    "    =>       clean: Removes all nupkg files from the destination before running this script. Default: 0 (no cleaning)."
+    ""
+    ""
+    "eg. & '.\NuGet Package and Package.ps1' -version 0.1-alpha"
+    "eg. & '.\NuGet Package and Package.ps1' -version 0.1-alpha -destination C:\temp\TempNuGetPackages"
+    "eg. & '.\NuGet Package and Package.ps1' -version 0.1-alpha -source ../nugetspecs/ -destination C:\temp\TempNuGetPackages"
+    "eg. & '.\NuGet Package and Package.ps1' -version 0.1-alpha -nuget c:\temp\nuget.exe"
+    "eg. & '.\NuGet Package and Package.ps1' -version 0.1-alpha -nuget c:\temp\nuget.exe -apiKey ABCD-EFG..."
+    "eg. & '.\NuGet Package and Package.ps1' -version 0.1-alpha -nuget c:\temp\nuget.exe -feedSource https://www.myget.org/F/pushit/api/v2 -apiKey ABCD-EFG..."
+    ""
+}
 
 
 function DisplayCommandLineArgs()
 {
+    $truncatedApiKey = @{ $true="---"; $false="......" + $apiKey.substring($apiKey.length-6) }[$apiKey -eq ""]  
     "Options provided:"
-    "    => version: $version"
-    "    => source: $source"
+    "    =>     version: $version"
+    "    =>      source: $source"
     "    => destination: $destination"
-    "    => nuget: $nuget"
-    "    => api key: $apiKey"
-    "    => clean: $clean"
-
-    ""
-    "eg. NuGetPackageAndPublish.ps1 -version 0.1-alpha"
-    "eg. NuGetPackageAndPublish.ps1 -version 0.1-alpha -destination C:\temp\TempNuGetPackages"
-    "eg. NuGetPackageAndPublish.ps1 -version 0.1-alpha -source ../nugetspecs/ -destination C:\temp\TempNuGetPackages"
-    "eg. NuGetPackageAndPublish.ps1 -version 0.1-alpha -nuget c:\temp\nuget.exe"
-    "eg. NuGetPackageAndPublish.ps1 -version 0.1-alpha -nuget c:\temp\nuget.exe -apiKey ABCD-EFG..."
+    "    =>       nuget: $nuget"
+    "    =>  feedSource: $feedSource"
+    "    =>     api key: $truncatedApiKey"
+    "    =>       clean: $clean"
     ""
 
     if (-Not $version)
     {
         ""
         "**** The version of this NuGet package is required."
-        "**** Eg. ./NuGetPackageAndPublish.ps1 -version 0.1-alpha"
+        "**** Eg. & '.\NuGet Package and Package.ps1' -version 0.1-alpha"
         ""
         ""
         throw;
@@ -64,7 +80,7 @@ function DisplayCommandLineArgs()
         throw;
     }
 
-    if ($pushSource -eq "")
+    if ($feedSource -eq "")
     {
         ""
         "**** The NuGet push source parameter provided cannot be an empty string."
@@ -83,8 +99,6 @@ function DisplayCommandLineArgs()
         # Assumption, nuget.exe is the current folder where this file is.
         $global:nugetExe = Join-Path $source "nuget" 
     }
-
-    $global:nugetExe
 
     if (!(Test-Path $global:nugetExe -PathType leaf))
     {
@@ -141,7 +155,7 @@ function PackageTheSpecifications()
 
     foreach($file in $files)
     {
-        &$nugetExe pack $file -Version $version -OutputDirectory $destination
+        &$nugetExe pack ($file.FullName) -Version $version -OutputDirectory $destination
 
         ""
     }
@@ -158,7 +172,7 @@ function PushThePackagesToNuGet()
 
 
     ""
-    "Getting all *.nupkg's files to push to : $pushSource"
+    "Getting all *.nupkg's files to push to : $feedSource"
 
     $files = Get-ChildItem $destination -Filter *.nupkg
 
@@ -174,7 +188,7 @@ function PushThePackagesToNuGet()
 
     foreach($file in $files)
     {
-        &$nugetExe push ($file.FullName) -Source $pushSource -apiKey $apiKey
+        &$nugetExe push ($file.FullName) -Source $feedSource -apiKey $apiKey
 
         ""
     }
@@ -186,26 +200,37 @@ function PushThePackagesToNuGet()
 $ErrorActionPreference = "Stop"
 $global:nugetExe = ""
 
-cls
+#cls
 
 ""
 " ---------------------- start script ----------------------"
 ""
 ""
-"  Starting NuGet packing/publishing script -  (╯°□°）╯︵ ┻━┻"
+"  Starting NuGet packing/publishing script"
 ""
 "  This script will look for -all- *.nuspec files in a source directory,"
 "  then paackage them up to *.nupack files. Finally, it can publish"
 "  them to a NuGet server, if an api key was provided."
 ""
+"  *** NEED HELP? use the -help argument."
+"      eg.  & '.\NuGet Package and Package.ps1' -help"
+""
+""
 
-DisplayCommandLineArgs
+if ($help)
+{
+    DisplayHelp;
+}
+else
+{
+    DisplayCommandLineArgs
 
-CleanUp
+    CleanUp
 
-PackageTheSpecifications
+    PackageTheSpecifications
 
-PushThePackagesToNuGet
+    PushThePackagesToNuGet
+}
 
 ""
 ""
