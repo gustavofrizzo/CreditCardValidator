@@ -4,7 +4,7 @@
         <id>CreditCardValidator</id>
         <version>1.3.0</version>
         <title>Credit Card Validator</title>
-        <authors>Gustavo Frizzo</authors>
+        <authors>Gustavo Frizzo and contributors</authors>
         <owners>Gustavo Frizzo</owners>
         <licenseUrl>https://github.com/gustavofrizzo/CreditCardValidator/blob/master/LICENSE</licenseUrl>
         <projectUrl>https://github.com/gustavofrizzo/CreditCardValidator</projectUrl>
