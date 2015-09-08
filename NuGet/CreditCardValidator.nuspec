@@ -1,0 +1,23 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<package xmlns="http://schemas.microsoft.com/packaging/2011/08/nuspec.xsd">
+    <metadata>
+        <id>CreditCardValidator</id>
+        <version>1.3.0</version>
+        <title>Credit Card Validator</title>
+        <authors>Gustavo Frizzo and contributors</authors>
+        <owners>Gustavo Frizzo</owners>
+        <licenseUrl>https://github.com/gustavofrizzo/CreditCardValidator/blob/master/LICENSE</licenseUrl>
+        <projectUrl>https://github.com/gustavofrizzo/CreditCardValidator</projectUrl>
+        <requireLicenseAcceptance>false</requireLicenseAcceptance>
+        <description>A library for validating credit card numbers and generating ones.
+
+            CreditCardValidator helps you implementing validations for the most common credit card brands, verifying length, prefixes and checking the card number through the Luhn algorithm if necessary.</description>
+        <summary>CreditCardValidator helps you implementing validations for the most common credit card brands, verifying length, prefixes and checking the card number through the Luhn algorithm if necessary.</summary>
+        <copyright>Copyright (c) 2015 Gustavo Frizzo</copyright>
+        <tags>Credit Card Validator Validations Luhn</tags>
+    </metadata>
+    <files>
+        <file src="..\CreditCardValidator\bin\Release\CreditCardValidator.dll" target="lib\net40\CreditCardValidator.dll" />
+        <file src="..\CreditCardValidator\bin\Release\CreditCardValidator.dll" target="lib\portable-net45+wp80+win\CreditCardValidator.dll" />
+    </files>
+</package>
