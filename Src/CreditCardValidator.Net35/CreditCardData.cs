@@ -62,7 +62,9 @@ namespace CreditCardValidator
                     new Rule
                     {
                         Lengths = new List<int> {16},
-                        Prefixes = new List<string> {"51", "52", "53", "54", "55"}
+                        Prefixes = new List<string> {
+                            "2221", "2222", "2223", "2224", "2225", "2226", "2227", "2228", "2229", "223", "224", "225", "226", "227", "228", "229", "23", "24", "25", "26", "270", "271", "2720", // new MasterCard BIN range as of Oct 2016
+                            "51", "52", "53", "54", "55"}
                     }
                 }
             });
@@ -88,7 +90,12 @@ namespace CreditCardValidator
                     new Rule
                     {
                         Lengths = new List<int> {14},
-                        Prefixes = new List<string> {"300", "301", "302", "303", "304", "305", "36", "38"}
+                        Prefixes = new List<string> {"36"}
+                    },
+                    new Rule
+                    {
+                        Lengths = new List<int> {16},
+                        Prefixes = new List<string> { "300", "301", "302", "303", "304", "305", "3095", "38" }
                     }
                 }
             });
