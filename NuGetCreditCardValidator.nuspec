@@ -17,9 +17,9 @@
         <tags>Credit Card Validator Validations Luhn</tags>
     </metadata>
     <files>
-        <file src="..\CreditCardValidator.Net35\bin\Release\CreditCardValidator.dll" target="lib\net35\CreditCardValidator.dll" />
-        <file src="..\CreditCardValidator.Net40\bin\Release\CreditCardValidator.dll" target="lib\net40\CreditCardValidator.dll" />
-        <file src="..\CreditCardValidator.Pcl\bin\Release\CreditCardValidator.dll" target="lib\portable-net45+wp80+win\CreditCardValidator.dll" />
-        <file src="..\CreditCardValidator.NetCore\bin\Release\netcoreapp1.0\CreditCardValidator.dll" target="lib\netcoreapp1.0\CreditCardValidator.dll" />
+        <file src="Src\CreditCardValidator.Net35\bin\Release\CreditCardValidator.dll" target="lib\net35\CreditCardValidator.dll" />
+        <file src="Src\CreditCardValidator.Net40\bin\Release\CreditCardValidator.dll" target="lib\net40\CreditCardValidator.dll" />
+        <file src="Src\CreditCardValidator.Pcl\bin\Release\CreditCardValidator.dll" target="lib\portable-net45+wp80+win\CreditCardValidator.dll" />
+        <file src="Src\CreditCardValidator.NetCore\bin\Release\netcoreapp1.0\CreditCardValidator.dll" target="lib\netcoreapp1.0\CreditCardValidator.dll" />
     </files>
 </package>
