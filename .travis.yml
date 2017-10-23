@@ -1,16 +1,22 @@
 language: csharp
-mono: 
- - latest
+env:
+  global:
+    - EnableNuGetPackageRestore=true
 dotnet: 1.0.3
 sudo: required
 dist: trusty
-env:  
-  - CLI_VERSION=latest
 
-install:
- - dotnet restore  
+cache: apt
+
+solution: CreditCardValidator.sln
+
+
+#install:
+# - dotnet restore  
 
 script:
-- dotnet build  --configuration release
+- xbuild CreditCardValidator.sln /p:Configuration="Release"
+
+# - dotnet build  --configuration release
 # - dotnet pack --configuration release --output nupkgs --version-suffix .$TRAVIS_BUILD_NUMBER
 # - dotnet nuget push ./src/nupkgs/AspNetCore.FriendlyExceptions.*.nupkg --api-key $NUGET_API_KEY --source $NUGET_SOURCE
