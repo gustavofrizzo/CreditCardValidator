@@ -12,5 +12,6 @@ install:
   - dotnet restore CreditCardValidator.sln
 
 script:
-  - msbuild /t:Rebuild CreditCardValidator.sln
+  - msbuild /t:Rebuild /p:Release CreditCardValidator.sln
+  - nuget pack NuGet/CreditCardValidator.nuspec
   
