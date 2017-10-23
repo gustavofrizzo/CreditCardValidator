@@ -1,0 +1,13 @@
+language: csharp
+mono: 
+ - latest
+dotnet: 1.0.3
+sudo: required
+dist: trusty
+
+install:
+ - dotnet restore  
+
+script:
+ - dotnet pack --configuration release --output nupkgs --version-suffix .$TRAVIS_BUILD_NUMBER
+# - dotnet nuget push ./src/nupkgs/AspNetCore.FriendlyExceptions.*.nupkg --api-key $NUGET_API_KEY --source $NUGET_SOURCE
