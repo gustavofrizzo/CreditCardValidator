@@ -4,6 +4,8 @@ mono:
 dotnet: 1.0.3
 sudo: required
 dist: trusty
+env:  
+  - CLI_VERSION=latest
 
 install:
  - dotnet restore  
