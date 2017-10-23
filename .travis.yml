@@ -13,5 +13,5 @@ install:
 
 script:
   - msbuild /t:Rebuild /p:Configuration=Release CreditCardValidator.sln
-  - nuget pack NuGet/CreditCardValidator.nuspec
+  - nuget pack ./NuGet/CreditCardValidator.nuspec -Verbosity detailed
   
