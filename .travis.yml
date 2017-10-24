@@ -9,5 +9,7 @@ install:
  - dotnet restore  
 
 script:
- - dotnet pack --configuration release --output nupkgs --version-suffix .$TRAVIS_BUILD_NUMBER
+ - dotnet build --configuration release
+# - xbuild GreyListAgent.sln /p:Configuration=2013
+# - dotnet pack --configuration release --output nupkgs --version-suffix .$TRAVIS_BUILD_NUMBER
 # - dotnet nuget push ./src/nupkgs/AspNetCore.FriendlyExceptions.*.nupkg --api-key $NUGET_API_KEY --source $NUGET_SOURCE
