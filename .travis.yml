@@ -16,7 +16,7 @@ script:
   - msbuild /t:Rebuild /p:Configuration=Release CreditCardValidator.sln
   - mono ./testrunner/NUnit.Runners.2.6.4/tools/nunit-console.exe ./Src/CreditCardValidator.Tests/bin/Release/CreditCardUnitTest.dll
   - nuget pack CreditCardValidator.nuspec -Version $MAJOR_VERSION_NUMBER.$MINOR_VERSION_NUMBER.$TRAVIS_BUILD_NUMBER
-  - nuget setApiKey $NUGET_API_KEY -Source https://www.nuget.org -Verbosity quiet
-  - nuget push CreditCardValidator.$MAJOR_VERSION_NUMBER.$MINOR_VERSION_NUMBER.$TRAVIS_BUILD_NUMBER.nupkg -Source https://www.nuget.org/api/v2/package
+  - nuget setApiKey $NUGET_API_KEY -Source $NUGET_SOURCE -Verbosity quiet
+  - nuget push CreditCardValidator.$MAJOR_VERSION_NUMBER.$MINOR_VERSION_NUMBER.$TRAVIS_BUILD_NUMBER.nupkg -Source $NUGET_SOURCE
 
   
