@@ -1,15 +1,17 @@
-language: csharp
-mono: 
- - latest
-dotnet: 1.0.3
 sudo: required
 dist: trusty
+language: csharp
+solution: CreditCardValidator.sln
+mono:
+  - beta
+dotnet: 1.0.3
+cache: apt
 
 install:
- - dotnet restore  
+  - nuget restore CreditCardValidator.sln
+  - dotnet restore CreditCardValidator.sln
 
 script:
- - dotnet build --configuration release
-# - xbuild GreyListAgent.sln /p:Configuration=2013
-# - dotnet pack --configuration release --output nupkgs --version-suffix .$TRAVIS_BUILD_NUMBER
-# - dotnet nuget push ./src/nupkgs/AspNetCore.FriendlyExceptions.*.nupkg --api-key $NUGET_API_KEY --source $NUGET_SOURCE
+  - msbuild /t:Rebuild /p:Configuration=Release CreditCardValidator.sln
+  - nuget pack CreditCardValidator.nuspec -Verbosity detailed
+  
