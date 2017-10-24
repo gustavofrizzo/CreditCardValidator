@@ -8,10 +8,12 @@ dotnet: 1.0.3
 cache: apt
 
 install:
+  - apt-get install nunit-console
   - nuget restore CreditCardValidator.sln
   - dotnet restore CreditCardValidator.sln
 
 script:
   - msbuild /t:Rebuild /p:Configuration=Release CreditCardValidator.sln
+  - nunit-console ./Src/CreditCardValidator.Tests/bin/Release/CreditCardUnitTest.dll
   - nuget pack CreditCardValidator.nuspec -Verbosity detailed
   
