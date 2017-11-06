@@ -1,4 +1,4 @@
-# CreditCardValidator [![Build Status](https://travis-ci.org/semack/CreditCardValidator.svg?branch=master)](https://travis-ci.org/semack/CreditCardValidator)
+# CreditCardValidator [![Build Status](https://travis-ci.org/gustavofrizzo/CreditCardValidator.svg?branch=master)](https://travis-ci.org/gustavofrizzo/CreditCardValidator)
 
 CreditCardValidator helps you implementing validations for the most common credit card brands, verifying length, prefixes and checking the card number through the Luhn algorithm if necessary.
 
