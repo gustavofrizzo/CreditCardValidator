@@ -1,9 +1,18 @@
-<Project Sdk="Microsoft.NET.Sdk">
+﻿<Project Sdk="Microsoft.NET.Sdk">
 
   <PropertyGroup>
     <TargetFramework>netcoreapp1.0</TargetFramework>
     <AssemblyName>CreditCardValidator</AssemblyName>
     <RootNamespace>CreditCardValidator</RootNamespace>
+    <PackageId>CreditCardValidator.NetCore</PackageId>
+    <Product>CreditCardValidator.NetCore</Product>
+    <Version>1.4.1</Version>
+    <Copyright>Copyright © Gustavo Frizzo 2015</Copyright>
+    <AssemblyVersion>1.4.1.0</AssemblyVersion>
+    <Description />
+    <FileVersion>0.0.0.0</FileVersion>
+    <Company />
+    <Authors />
   </PropertyGroup>
 
   <ItemGroup>
@@ -17,6 +26,7 @@
     <Compile Include="..\CreditCardValidator.Net35\Luhn.cs" Link="Luhn.cs" />
     <Compile Include="..\CreditCardValidator.Net35\MajorIndustryIdentifier.cs" Link="MajorIndustryIdentifier.cs" />
     <Compile Include="..\CreditCardValidator.Net35\Rule.cs" Link="Rule.cs" />
+    
   </ItemGroup>
 
   <ItemGroup>
