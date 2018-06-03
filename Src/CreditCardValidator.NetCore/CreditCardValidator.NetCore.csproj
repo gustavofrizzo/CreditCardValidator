@@ -34,8 +34,8 @@
   </ItemGroup>
 
   <ItemGroup>
-    <Folder Include="Data\" />
-    <Folder Include="Helpers\" />
+    <Folder Include="..\CreditCardValidator.Net35\Data\" />
+    <Folder Include="..\CreditCardValidator.Net35\Helpers\" />
   </ItemGroup>
 
 </Project>
