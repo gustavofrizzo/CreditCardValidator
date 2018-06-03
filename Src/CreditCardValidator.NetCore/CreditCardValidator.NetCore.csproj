@@ -1,15 +1,15 @@
 ﻿<Project Sdk="Microsoft.NET.Sdk">
 
   <PropertyGroup>
-    <TargetFrameworks>netcoreapp1.0;netcoreapp1.1;netcoreapp2.0</TargetFrameworks>
+    <TargetFrameworks>netcoreapp1.0;netcoreapp1.1;netcoreapp2.0;net40;net45;net46;net471</TargetFrameworks>
     <!--<TargetFramework>netcoreapp2.0</TargetFramework>-->
     <AssemblyName>CreditCardValidator</AssemblyName>
     <RootNamespace>CreditCardValidator</RootNamespace>
     <PackageId>CreditCardValidator.NetCore</PackageId>
     <Product>CreditCardValidator.NetCore</Product>
-    <Version>1.4.1</Version>
+    <Version>1.4.2</Version>
     <Copyright>Copyright © Gustavo Frizzo 2015</Copyright>
-    <AssemblyVersion>1.4.1.0</AssemblyVersion>
+    <AssemblyVersion>1.4.2.0</AssemblyVersion>
     <Description />
     <FileVersion>0.0.0.0</FileVersion>
     <Company />

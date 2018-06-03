@@ -90,9 +90,9 @@
     <None Include="packages.config" />
   </ItemGroup>
   <ItemGroup>
-    <ProjectReference Include="..\CreditCardValidator.Net40\CreditCardValidator.Net40.csproj">
-      <Project>{007f80d3-2eaf-483d-a9b5-39e862dfc25c}</Project>
-      <Name>CreditCardValidator.Net40</Name>
+    <ProjectReference Include="..\CreditCardValidator.NetCore\CreditCardValidator.NetCore.csproj">
+      <Project>{e1ebb0f2-e429-414d-8d23-0f9536beff05}</Project>
+      <Name>CreditCardValidator.NetCore</Name>
     </ProjectReference>
   </ItemGroup>
   <Choose>
