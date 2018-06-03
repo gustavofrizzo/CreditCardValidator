@@ -11,7 +11,12 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "CreditCardValidator.Pcl", "
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "CreditCardValidator.Tests", "Src\CreditCardValidator.Tests\CreditCardValidator.Tests.csproj", "{1D3840DE-41C6-4517-BE06-309AA4A73759}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "CreditCardValidator.NetCore", "Src\CreditCardValidator.NetCore\CreditCardValidator.NetCore.csproj", "{E1EBB0F2-E429-414D-8D23-0F9536BEFF05}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "CreditCardValidator.NetCore", "Src\CreditCardValidator.NetCore\CreditCardValidator.NetCore.csproj", "{E1EBB0F2-E429-414D-8D23-0F9536BEFF05}"
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Travis", "Travis", "{3D6D571A-7CFE-411E-8147-57D999A8FFE7}"
+	ProjectSection(SolutionItems) = preProject
+		.travis.yml = .travis.yml
+	EndProjectSection
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution

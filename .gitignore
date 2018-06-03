@@ -194,3 +194,4 @@ ModelManifest.xml
 /nuget.exe
 /nuget.exe
 /nuget.exe
+/Src/CreditCardValidator.NetCore/Properties/PublishProfiles/FolderProfile.pubxml
