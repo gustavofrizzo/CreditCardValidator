@@ -5,15 +5,26 @@
     <!--<TargetFramework>netcoreapp2.0</TargetFramework>-->
     <AssemblyName>CreditCardValidator</AssemblyName>
     <RootNamespace>CreditCardValidator</RootNamespace>
-    <PackageId>CreditCardValidator.NetCore</PackageId>
+    <PackageId>CreditCardValidator</PackageId>
     <Product>CreditCardValidator.NetCore</Product>
     <Version>1.4.2</Version>
-    <Copyright>Copyright © Gustavo Frizzo 2015</Copyright>
+    <title>Credit Card Validator</title>
+    <Copyright>Copyright © Gustavo Frizzo 2018</Copyright>
     <AssemblyVersion>1.4.2.0</AssemblyVersion>
-    <Description />
+    <Description>A library for validating credit card numbers and generating ones.
+
+CreditCardValidator helps you implementing validations for the most common credit card brands, verifying length, prefixes and checking the card number through the Luhn algorithm if necessary.</Description>
     <FileVersion>0.0.0.0</FileVersion>
+    <summary>CreditCardValidator helps you implementing validations for the most common credit card brands, verifying length, prefixes and checking the card number through the Luhn algorithm if necessary.</summary>
     <Company />
-    <Authors />
+    <Authors>Gustavo Frizzo and contributors</Authors>
+    <owners>Gustavo Frizzo</owners>
+    <PackageLicenseUrl>https://github.com/gustavofrizzo/CreditCardValidator/blob/master/LICENSE</PackageLicenseUrl>
+    <PackageProjectUrl>https://github.com/gustavofrizzo/CreditCardValidator</PackageProjectUrl>
+    <PackageTags>Credit Card Creditcard Check Validator Validations Luhn</PackageTags>
+    <PackageReleaseNotes>- .NET Core support.
+
+Thanks @semack.</PackageReleaseNotes>
   </PropertyGroup>
 
   <ItemGroup>
