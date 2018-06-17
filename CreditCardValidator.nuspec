@@ -2,7 +2,7 @@
 <package xmlns="http://schemas.microsoft.com/packaging/2011/08/nuspec.xsd">
   <metadata>
     <id>CreditCardValidator</id>
-    <version>1.4.2</version>
+    <version>1.4.4</version>
     <title>Credit Card Validator</title>
     <authors>Gustavo Frizzo and contributors</authors>
     <owners>Gustavo Frizzo</owners>
@@ -16,9 +16,12 @@
     </description>
     <summary>CreditCardValidator helps you implementing validations for the most common credit card brands, verifying length, prefixes and checking the card number through the Luhn algorithm if necessary.</summary>
     <releaseNotes>
-      - .NET Core support.
+      - .NET Core 2.0 support.
+      - More tests.
+      - Adding support for Visa 19 digits cards.
+      - Added new constructor on CreditCardDetector(string cardNumber, bool ignoreLengthCheck). Ignores the length check so it is possible to pass just the beginning of the card number and gets its issuer.
+      - New string extensions: CreditCardBrandIgnoreLength() and CreditCardBrandNameIgnoreLength();
 
-      Thanks @semack.
     </releaseNotes>
     <copyright>Copyright © Gustavo Frizzo 2018</copyright>
     <tags>Credit Card Creditcard Check Validator Validations Luhn</tags>

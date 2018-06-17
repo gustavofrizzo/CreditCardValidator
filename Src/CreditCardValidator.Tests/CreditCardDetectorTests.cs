@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.IO;
 using CreditCardValidator;
 using Shouldly;
 using Xunit;
@@ -42,6 +43,65 @@ namespace CreditCardUnitTest
 
                 // Assert.
                 exception.Message.ShouldBe("Invalid number. Just numbers and white spaces are accepted on the string.");
+            }
+        }
+
+        public List<RangeHelper> Ranges { get; }
+
+        public CreditCardDetectorTests()
+        {
+            Ranges = LoadRanges();
+        }
+        
+        private List<RangeHelper> LoadRanges()
+        {
+            var csv = File.ReadAllLines("Data\\ranges.csv");
+
+            List<RangeHelper> ranges = new List<RangeHelper>();
+
+            foreach(string line in csv)
+            {
+                if (string.IsNullOrWhiteSpace(line) || line.StartsWith("iin_start"))
+                    continue;
+
+                var columns = line.Split(',');
+
+                if (string.IsNullOrWhiteSpace(columns[0]) || string.IsNullOrWhiteSpace(columns[4]))
+                    continue;
+
+                ranges.Add(new RangeHelper(columns[0], columns[4]));
+            }
+
+            return ranges;
+        }
+
+        [Fact]
+        public void CheckRanges()
+        {
+            foreach(var range in this.Ranges)
+            {
+                CreditCardDetector cardDetector = new CreditCardDetector(range.Range, true);
+
+                (cardDetector.Brand.ToString().ToLower() == range.CardIssuer.ToLower()).ShouldBe(true);
+                //if (cardDetector.Brand.ToString().ToLower() != range.CardIssuer.ToLower())
+                //    throw new Exception();
+            }
+        }
+
+        public class RangeHelper
+        {
+            public string Range { get; set; }
+            public string CardIssuer { get; set; }
+
+            public RangeHelper(string range, string issuer)
+            {
+                Range = range;
+                CardIssuer = issuer;
+            }
+
+            public override string ToString()
+            {
+                return $"{Range} - {CardIssuer}";
             }
         }
     }

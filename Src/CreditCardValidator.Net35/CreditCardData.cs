@@ -48,26 +48,26 @@ namespace CreditCardValidator
                 {
                     new Rule
                     {
-                        Lengths = new List<int> {13, 16},
+                        Lengths = new List<int> {13, 16, 19},
                         Prefixes = new List<string> {"4"}
                     }
                 }
             });
 
-            BrandsData.Add(CardIssuer.MasterCard, new BrandInfo
-            {
-                BrandName = "MasterCard",
-                Rules = new List<Rule>
-                {
-                    new Rule
-                    {
-                        Lengths = new List<int> {16},
-                        Prefixes = new List<string> {
-                            "2221", "2222", "2223", "2224", "2225", "2226", "2227", "2228", "2229", "223", "224", "225", "226", "227", "228", "229", "23", "24", "25", "26", "270", "271", "2720", // new MasterCard BIN range as of Oct 2016
-                            "51", "52", "53", "54", "55"}
-                    }
-                }
-            });
+
+            var masterCard = new BrandInfo();
+            masterCard.BrandName = "MasterCard";
+            masterCard.Rules = new List<Rule>();
+
+            var masterCardRule1 = new Rule();
+            masterCardRule1.Lengths = new List<int> { 16 };
+            masterCardRule1.Prefixes = new List<string>();
+            masterCardRule1.Prefixes.AddRange(GenerateRange(51, 55));
+            masterCardRule1.Prefixes.AddRange(GenerateRange(2221, 2720));
+
+            masterCard.Rules.Add(masterCardRule1);
+
+            BrandsData.Add(CardIssuer.MasterCard, masterCard);
 
             BrandsData.Add(CardIssuer.AmericanExpress, new BrandInfo
             {
@@ -89,13 +89,8 @@ namespace CreditCardValidator
                 {
                     new Rule
                     {
-                        Lengths = new List<int> {14},
-                        Prefixes = new List<string> {"36"}
-                    },
-                    new Rule
-                    {
-                        Lengths = new List<int> {16},
-                        Prefixes = new List<string> { "300", "301", "302", "303", "304", "305", "3095", "38" }
+                        Lengths = new List<int> {14, 16},
+                        Prefixes = new List<string> { "300", "301", "302", "303", "304", "305", "3095", "36", "38" }
                     }
                 }
             });
@@ -144,7 +139,7 @@ namespace CreditCardValidator
                     new Rule
                     {
                         Lengths = new List<int> {16, 17, 18, 19},
-                        Prefixes = new List<string> {"6304", "6706", "6771"}
+                        Prefixes = new List<string> {"6304"}
                     }
                 }
             });
@@ -175,76 +170,26 @@ namespace CreditCardValidator
                 }
             });
 
-            BrandsData.Add(CardIssuer.Maestro, new BrandInfo
-            {
-                BrandName = "Maestro",
-                Rules = new List<Rule>
-                {
-                    new Rule
-                    {
-                        Lengths = new List<int> {12, 13, 14, 15, 16, 17, 18, 19},
-                        Prefixes = new List<string>
-                        {
-                            "500",
-                            "5010",
-                            "5011",
-                            "5012",
-                            "5013",
-                            "5014",
-                            "5015",
-                            "5016",
-                            "5017",
-                            "5018",
-                            "502",
-                            "503",
-                            "504",
-                            "505",
-                            "506",
-                            "507",
-                            "508",
-                            "509",
-                            "56",
-                            "57",
-                            "58",
-                            "59",
-                            "6010",
-                            "6012",
-                            "6013",
-                            "6014",
-                            "6015",
-                            "6016",
-                            "6017",
-                            "6018",
-                            "6019",
-                            "602",
-                            "603",
-                            "604",
-                            "605",
-                            "6060",
-                            "621",
-                            "627",
-                            "629",
-                            "670",
-                            "671",
-                            "672",
-                            "673",
-                            "674",
-                            "675",
-                            "677",
-                            "6760",
-                            "6761",
-                            "6762",
-                            "6763",
-                            "6764",
-                            "6765",
-                            "6766",
-                            "6768",
-                            "6769",
-                            "679"
-                        }
-                    }
-                }
-            });
+
+            var maestro = new BrandInfo();
+            maestro.BrandName = "Maestro";
+            maestro.Rules = new List<Rule>();
+
+            var maestroRule1 = new Rule();
+            maestroRule1.Lengths = new List<int> { 12, 13, 14, 15, 16, 17, 18, 19 };
+            maestroRule1.Prefixes = new List<string>();
+            maestroRule1.Prefixes.AddRange(GenerateRange(56, 58));
+            maestroRule1.Prefixes.AddRange(GenerateRange(500, 500));
+            maestroRule1.Prefixes.AddRange(GenerateRange(502, 509));
+            maestroRule1.Prefixes.AddRange(GenerateRange(602, 605));
+            maestroRule1.Prefixes.AddRange(GenerateRange(670, 679));
+            maestroRule1.Prefixes.AddRange(GenerateRange(5010, 5018));
+            maestroRule1.Prefixes.AddRange(GenerateRange(6000, 6060));
+            maestroRule1.Prefixes.AddRange(GenerateRange(6760, 6769));
+
+            maestro.Rules.Add(maestroRule1);
+
+            BrandsData.Add(CardIssuer.Maestro, maestro);
 
             BrandsData.Add(CardIssuer.ChinaUnionPay, new BrandInfo
             {
@@ -255,7 +200,7 @@ namespace CreditCardValidator
                     new Rule
                     {
                         Lengths = new List<int> {16, 17, 18, 19},
-                        Prefixes = new List<string> {"622", "624", "625", "626", "628"}
+                        Prefixes = new List<string> {"62"}
                     }
                 }
             });
@@ -338,6 +283,22 @@ namespace CreditCardValidator
                     }
                 }
             });*/
+        }
+
+        /// <summary>
+        /// Includes start and end values in the result.
+        /// </summary>
+        /// <param name="start"></param>
+        /// <param name="end"></param>
+        /// <returns></returns>
+        private static List<string> GenerateRange(int start, int end)
+        {
+            List<string> ret = new List<string>();
+            for(int i = start; i <= end; i++)
+            {
+                ret.Add(i.ToString());
+            }
+            return ret;
         }
     }
 }
