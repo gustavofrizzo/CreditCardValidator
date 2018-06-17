@@ -14,7 +14,7 @@ install:
 
 script:
   - msbuild /t:Rebuild /p:Configuration=Release CreditCardValidator.sln
-  - mono ./testrunner/xunit.runner.console.2.1.0/tools/xunit.console.clr4.exe ./Src/CreditCardValidator.Tests/bin/Release/CreditCardUnitTest.dll
+  - mono ./testrunner/xunit.runner.console.2.1.0/tools/xunit.console.exe ./Src/CreditCardValidator.Tests/bin/Release/CreditCardUnitTest.dll
   # - dotnet test Src/CreditCardValidator.Tests/CreditCardValidator.Tests.csproj
   # - mono ./testrunner/NUnit.Runners.2.6.4/tools/nunit-console.exe ./Src/CreditCardValidator.Tests/bin/Release/CreditCardUnitTest.dll
   # - nuget pack CreditCardValidator.nuspec -Version $MAJOR_VERSION_NUMBER.$MINOR_VERSION_NUMBER.$TRAVIS_BUILD_NUMBER
