@@ -55,7 +55,7 @@ namespace CreditCardUnitTest
         
         private List<RangeHelper> LoadRanges()
         {
-            var csv = File.ReadAllLines("Data\\ranges.csv");
+            var csv = File.ReadAllLines(Path.Combine("Data", "ranges.csv"));
 
             List<RangeHelper> ranges = new List<RangeHelper>();
 

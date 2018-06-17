@@ -38,7 +38,7 @@ namespace CreditCardUnitTest
         {
             get
             {
-                var json = File.ReadAllText("Data\\LuhnNumbers.json");
+                var json = File.ReadAllText(Path.Combine("Data", "LuhnNumbers.json"));
                 var numbers = JsonConvert.DeserializeObject<List<string>>(json);
                 var theoryData = new TheoryData<string>();
                 foreach (var number in numbers)
@@ -54,7 +54,7 @@ namespace CreditCardUnitTest
         {
             get
             {
-                var json = File.ReadAllText("Data\\LuhnCheckDigits.json");
+                var json = File.ReadAllText(Path.Combine("Data", "LuhnCheckDigits.json"));
                 var numbers = JsonConvert.DeserializeObject<List<string>>(json);
                 var theoryData = new TheoryData<string>();
                 foreach (var number in numbers)
@@ -68,7 +68,7 @@ namespace CreditCardUnitTest
 
         public static TheoryData<KeyValuePair<string, string[]>> CreditCards()
         {
-            var json = File.ReadAllText("Data\\ValidCards.json");
+            var json = File.ReadAllText(Path.Combine("Data", "ValidCards.json"));
             var creditCards = JsonConvert.DeserializeObject<Dictionary<string, string[]>>(json);
 
             var data = new TheoryData<KeyValuePair<string, string[]>>();

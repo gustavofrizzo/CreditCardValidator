@@ -16,6 +16,10 @@ Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Travis", "Travis", "{3D6D57
 		.travis.yml = .travis.yml
 	EndProjectSection
 EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "zTests", "zTests", "{C5F1ADB2-6A2D-492A-8C33-75446324BBB7}"
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Src", "Src", "{A37B4815-77C3-45BD-B4A4-E5C410736345}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -41,6 +45,12 @@ Global
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
+	EndGlobalSection
+	GlobalSection(NestedProjects) = preSolution
+		{F138E4A6-CDC7-405C-B9FB-879ECD343E53} = {A37B4815-77C3-45BD-B4A4-E5C410736345}
+		{10FCFCC0-BF9D-40AE-9482-37CB409A46AB} = {A37B4815-77C3-45BD-B4A4-E5C410736345}
+		{1D3840DE-41C6-4517-BE06-309AA4A73759} = {C5F1ADB2-6A2D-492A-8C33-75446324BBB7}
+		{E1EBB0F2-E429-414D-8D23-0F9536BEFF05} = {A37B4815-77C3-45BD-B4A4-E5C410736345}
 	EndGlobalSection
 	GlobalSection(ExtensibilityGlobals) = postSolution
 		SolutionGuid = {85A4490E-3048-4970-9FC4-0CA17BD1C6D6}
