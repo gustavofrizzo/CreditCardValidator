@@ -10,12 +10,12 @@ cache: apt
 install:
   - nuget restore CreditCardValidator.sln
   - dotnet restore CreditCardValidator.sln
-  - nuget install NUnit.Runners -Version 2.6.4 -OutputDirectory testrunner
+  - nuget install xunit.runner.console -Version 2.3.1 -OutputDirectory testrunner
 
 script:
   - msbuild /t:Rebuild /p:Configuration=Release CreditCardValidator.sln
-  - dotnet test Src/CreditCardValidator.Tests/CreditCardValidator.Tests.csproj
-  # - dotnet test Core.Shogi.Tests/Core.Shogi.Tests.csproj
+  - mono ./testrunner/xunit.runner.console.2.3.1/tools/xunit.console.exe ./Src/CreditCardValidator.Tests/bin/Release/CreditCardUnitTest.dll
+  # - dotnet test Src/CreditCardValidator.Tests/CreditCardValidator.Tests.csproj
   # - mono ./testrunner/NUnit.Runners.2.6.4/tools/nunit-console.exe ./Src/CreditCardValidator.Tests/bin/Release/CreditCardUnitTest.dll
   # - nuget pack CreditCardValidator.nuspec -Version $MAJOR_VERSION_NUMBER.$MINOR_VERSION_NUMBER.$TRAVIS_BUILD_NUMBER
   # - nuget setApiKey $NUGET_API_KEY -Source $NUGET_SOURCE -Verbosity quiet
