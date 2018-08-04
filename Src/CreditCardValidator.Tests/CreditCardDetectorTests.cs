@@ -80,9 +80,9 @@ namespace CreditCardUnitTest
         {
             foreach(var range in this.Ranges)
             {
-                CreditCardDetector cardDetector = new CreditCardDetector(range.Range, true);
+                CardIssuer ci = range.Range.CreditCardBrandIgnoreLength();
 
-                (cardDetector.Brand.ToString().ToLower() == range.CardIssuer.ToLower()).ShouldBe(true);
+                (ci.ToString().ToLower() == range.CardIssuer.ToLower()).ShouldBe(true);
                 //if (cardDetector.Brand.ToString().ToLower() != range.CardIssuer.ToLower())
                 //    throw new Exception();
             }

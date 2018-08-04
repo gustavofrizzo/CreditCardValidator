@@ -9,6 +9,7 @@ namespace CreditCardValidator
         public string CardNumber { get; private set; }
         public CardIssuer Brand { get; private set; }
         public string BrandName { get; private set; }
+        internal bool IgnoreLengthCheck { get; private set; }
 
         public CreditCardDetector(string cardNumber)
         {
@@ -16,15 +17,18 @@ namespace CreditCardValidator
                 throw new ArgumentException("Invalid number. Just numbers and white spaces are accepted on the string.");
 
             CardNumber = cardNumber.RemoveWhiteSpace();
+            IgnoreLengthCheck = false;
             LoadCard();
         }
 
-        public CreditCardDetector(string cardNumber, bool ignoreLengthCheck)
+        internal CreditCardDetector(string cardNumber, bool ignoreLengthCheck)
         {
             if (!ValidationHelper.IsAValidNumber(cardNumber))
                 throw new ArgumentException("Invalid number. Just numbers and white spaces are accepted on the string.");
 
             CardNumber = cardNumber.RemoveWhiteSpace();
+            IgnoreLengthCheck = ignoreLengthCheck;
+
             if (ignoreLengthCheck)
                 LoadCardIgnoreCardLength();
             else
