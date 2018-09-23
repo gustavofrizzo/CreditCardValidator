@@ -35,6 +35,13 @@ namespace CreditCardUnitTest
             {
                 number.CreditCardBrand().ShouldBe(CardIssuer.MasterCard);
             }
+
+            [Theory]
+            [MemberData("MasterCardNumbers")]
+            public void Validating_CreditCardBrandIgnoreLength(string number)
+            {
+                number.CreditCardBrandIgnoreLength().ShouldBe(CardIssuer.MasterCard);
+            }
         }
     }
 }
