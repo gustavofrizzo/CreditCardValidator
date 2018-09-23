@@ -10,7 +10,7 @@
     <Version>1.4.4</Version>
     <title>Credit Card Validator</title>
     <Copyright>Copyright © Gustavo Frizzo 2018</Copyright>
-    <AssemblyVersion>1.4.3.0</AssemblyVersion>
+    <AssemblyVersion>1.4.4.0</AssemblyVersion>
     <Description>A library for validating credit card numbers and generating ones.
 
 CreditCardValidator helps you implementing validations for the most common credit card brands, verifying length, prefixes and checking the card number through the Luhn algorithm if necessary.</Description>
@@ -22,9 +22,7 @@ CreditCardValidator helps you implementing validations for the most common credi
     <PackageLicenseUrl>https://github.com/gustavofrizzo/CreditCardValidator/blob/master/LICENSE</PackageLicenseUrl>
     <PackageProjectUrl>https://github.com/gustavofrizzo/CreditCardValidator</PackageProjectUrl>
     <PackageTags>Credit Card Creditcard Check Validator Validations Luhn</PackageTags>
-    <PackageReleaseNotes>- .NET Core support.
-
-Thanks @semack.</PackageReleaseNotes>
+    <PackageReleaseNotes></PackageReleaseNotes>
   </PropertyGroup>
 
   <ItemGroup>
