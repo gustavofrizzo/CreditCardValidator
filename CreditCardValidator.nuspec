@@ -19,8 +19,8 @@
       - .NET Core 2.0 support.
       - More tests.
       - Adding support for Visa 19 digits cards.
-      - Added new constructor on CreditCardDetector(string cardNumber, bool ignoreLengthCheck). Ignores the length check so it is possible to pass just the beginning of the card number and gets its issuer.
-      - New string extensions: CreditCardBrandIgnoreLength() and CreditCardBrandNameIgnoreLength();
+      - Improved Diners Club detection.
+      - New string extensions: CreditCardBrandIgnoreLength() and CreditCardBrandNameIgnoreLength(); Ignores the length check so it is possible to pass just the beginning of the card number and gets its issuer.
 
     </releaseNotes>
     <copyright>Copyright © Gustavo Frizzo 2018</copyright>
