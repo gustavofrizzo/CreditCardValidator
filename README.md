@@ -60,6 +60,10 @@ string chinaUnionPayNumber = CreditCardFactory.RandomCardNumber(CardIssuer.China
 "4953089013607".CreditCardBrandName() // => Visa
 
 "348051773827666".ValidCreditCardBrand(CardIssuer.AmericanExpress); // => True
+
+"495308".CreditCardBrandIgnoreLength(); // => CardIssuer.Visa
+
+"495308".CreditCardBrandNameIgnoreLength() // => Visa
 ```
 #### Luhn
 
