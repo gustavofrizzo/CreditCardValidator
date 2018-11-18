@@ -1,16 +1,16 @@
 ﻿<Project Sdk="Microsoft.NET.Sdk">
 
   <PropertyGroup>
-    <TargetFrameworks>netcoreapp1.0;netcoreapp1.1;netcoreapp2.0;net35;net40;net45;net46;net471</TargetFrameworks>
+    <TargetFrameworks>netcoreapp1.0;netcoreapp1.1;netcoreapp2.0;net35;net40;net45;net46;net471;netstandard2.0</TargetFrameworks>
     <!--<TargetFramework>netcoreapp2.0</TargetFramework>-->
     <AssemblyName>CreditCardValidator</AssemblyName>
     <RootNamespace>CreditCardValidator</RootNamespace>
     <PackageId>CreditCardValidator</PackageId>
     <Product>CreditCardValidator.NetCore</Product>
-    <Version>1.4.5</Version>
+    <Version>1.4.6</Version>
     <title>Credit Card Validator</title>
     <Copyright>Copyright © Gustavo Frizzo 2018</Copyright>
-    <AssemblyVersion>1.4.5.0</AssemblyVersion>
+    <AssemblyVersion>1.4.6.0</AssemblyVersion>
     <Description>A library for validating credit card numbers and generating ones.
 
 CreditCardValidator helps you implementing validations for the most common credit card brands, verifying length, prefixes and checking the card number through the Luhn algorithm if necessary.</Description>
