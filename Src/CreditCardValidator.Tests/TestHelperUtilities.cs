@@ -34,7 +34,7 @@ namespace CreditCardUnitTest
             }
         }
 
-        public static TheoryData<string> LuhnNumbers
+		public static TheoryData<string> LuhnNumbers
         {
             get
             {
@@ -66,7 +66,34 @@ namespace CreditCardUnitTest
             }
         }
 
-        public static TheoryData<KeyValuePair<string, string[]>> CreditCards()
+		public static TheoryData<KeyValuePair<string, List<int>>> Lengths () 
+		{
+			var json = File.ReadAllText(Path.Combine("Data", "ValidLengths.json"));
+			var lengths = JsonConvert.DeserializeObject<Dictionary<string, List<int>>>(json);
+
+			var data = new TheoryData<KeyValuePair<string, List<int>>>();
+			foreach (var length in lengths)
+			{
+				data.Add(length);
+			}
+
+			return data;
+		}
+
+		public static List<int> Lengths(CardIssuer cardIssuer)
+		{
+			var lengths = new List<int>();
+			foreach (var item in Lengths()
+				.SelectMany(item => item.Cast<KeyValuePair<string, List<int>>>())
+				.Where(x => x.Key.Equals(cardIssuer.ToString(), StringComparison.OrdinalIgnoreCase)))
+			{
+				lengths = item.Value;
+			}
+
+			return lengths;
+		}
+
+		public static TheoryData<KeyValuePair<string, string[]>> CreditCards()
         {
             var json = File.ReadAllText(Path.Combine("Data", "ValidCards.json"));
             var creditCards = JsonConvert.DeserializeObject<Dictionary<string, string[]>>(json);
@@ -92,5 +119,5 @@ namespace CreditCardUnitTest
 
             return theoryData;
         }
-    }
+	}
 }

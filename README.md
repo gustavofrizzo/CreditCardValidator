@@ -52,6 +52,13 @@ string chinaUnionPayNumber = CreditCardFactory.RandomCardNumber(CardIssuer.China
 // => 6280209982074556
 ```
 
+Generate random credit card numbers from a specific CardIssuer with any valid card number length.
+
+```csharp
+string visaNumber = CreditCardFactory.RandomCardNumber(CardIssuer.Visa, 16);
+// => 4556672647860978
+```
+
 #### CreditCardStringExtension
 
 ```csharp
