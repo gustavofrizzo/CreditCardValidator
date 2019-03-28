@@ -17,13 +17,13 @@ namespace CreditCardValidator
 
             var rule = CreditCardData.BrandsData[brand].Rules.First();
 
-            int len = length > 0 ? length : rule.Lengths.First();
+            length = length > 0 ? length : rule.Lengths.First();
 
             if (brand != CardIssuer.Unknown)
                 number += rule.Prefixes[RandomNumber.Next(0, rule.Prefixes.Count)];
 
             var numberLength = number.Length;
-            for (int i = 0; i < len - 1 - numberLength; i++)
+            for (int i = 0; i < length - 1 - numberLength; i++)
             {
                 number += RandomNumber.Next(0, 10);
             }
