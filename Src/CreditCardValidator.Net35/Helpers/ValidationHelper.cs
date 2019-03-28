@@ -14,11 +14,11 @@ namespace CreditCardValidator.Helpers
                     !string.IsNullOrEmpty(number));
         }
 
-		public static bool IsAValidLength(CardIssuer brand, int length)
-		{
-			var rule = CreditCardData.BrandsData[brand].Rules.First();
+        public static bool IsAValidLength(CardIssuer brand, int length)
+        {
+            var rule = CreditCardData.BrandsData[brand].Rules.First();
 
-			return rule.Lengths.Contains(length);
-		}
+            return rule.Lengths.Contains(length);
+        }
     }
 }
