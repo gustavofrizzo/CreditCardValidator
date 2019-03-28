@@ -10,16 +10,16 @@ namespace CreditCardValidator
 
         public static string RandomCardNumber(CardIssuer brand, int length = 0)
         {
-			if (length > 0 && !ValidationHelper.IsAValidLength(brand, length))
-				throw new ArgumentException(String.Format("{0} is not valid length for card issuer {1}", length, brand));
+            if (length > 0 && !ValidationHelper.IsAValidLength(brand, length))
+                throw new ArgumentException(String.Format("{0} is not valid length for card issuer {1}", length, brand));
 
-			string number = "";
+            string number = "";
 
             var rule = CreditCardData.BrandsData[brand].Rules.First();
-					   
-			int len = length > 0 ? length : rule.Lengths.First();
 
-			if (brand != CardIssuer.Unknown)
+            int len = length > 0 ? length : rule.Lengths.First();
+
+            if (brand != CardIssuer.Unknown)
                 number += rule.Prefixes[RandomNumber.Next(0, rule.Prefixes.Count)];
 
             var numberLength = number.Length;
@@ -29,7 +29,7 @@ namespace CreditCardValidator
             }
 
             number += Luhn.CreateCheckDigit(number);
-            
+
             return number;
         }
     }
