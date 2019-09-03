@@ -21,7 +21,8 @@ namespace CreditCardValidator
         Solo,
         Switch,
         Visa,
-        Unknown
+        Unknown,
+        Elo
     }
 
     internal static class CreditCardData
@@ -271,19 +272,32 @@ namespace CreditCardValidator
                 }
             });
 
-            /*BrandsData.Add(CardIssuer., new BrandInfo()
+          BrandsData.Add(CardIssuer.Elo, new BrandInfo()
+          {
+            BrandName = "Elo",
+            Rules = new List<Rule>()
             {
-                BrandName = "",
-                Rules = new List<Rule>() 
-                { 
-                    new Rule() 
-                    { 
-                        Lengths = new List<int>() {  }, 
-                        Prefixes = new List<string>() {  }
-                    }
-                }
-            });*/
-        }
+              new Rule()
+              {
+                Lengths = new List<int>() { 16 },
+                Prefixes = new List<string>() { "4011", "438935", "451416", "4576", "504175", "506699", "5067", "50904", "509040", "509042", "509043", "509045", "509046", "509047", "509048", "509049", "509050", "509051", "509052", "509064", "509066", "509067", "509068", "509069", "509074", "636297", "636368" }
+              }
+            }
+          });
+
+      /*BrandsData.Add(CardIssuer., new BrandInfo()
+      {
+          BrandName = "",
+          Rules = new List<Rule>() 
+          { 
+              new Rule() 
+              { 
+                  Lengths = new List<int>() {  }, 
+                  Prefixes = new List<string>() {  }
+              }
+          }
+      });*/
+    }
 
         /// <summary>
         /// Includes start and end values in the result.

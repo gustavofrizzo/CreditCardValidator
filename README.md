@@ -16,7 +16,7 @@ The following issuing institutes are supported:
 <td>Hipercard</td> <td>Visa</td>  <td>Laser</td> <td>ChinaUnionPay</td> <td>Dankort</td> 
 </tr>
 <tr>
-<td>Rupay</td> <td>Solo</td> <td>Switch</td> <td>JCB</td>
+<td>Rupay</td> <td>Solo</td> <td>Switch</td> <td>JCB</td> <td>Elo</td>
 </tr>
 </table>
 
