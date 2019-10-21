@@ -13,7 +13,7 @@ namespace CreditCardValidator
 
         public CreditCardDetector(string cardNumber)
         {
-            if (!ValidationHelper.IsAValidNumber(cardNumber))
+            if (!ValidationHelper.IsAValidNumber(cardNumber) && !ValidationHelper.IsAMaskedNumber(cardNumber))
                 throw new ArgumentException("Invalid number. Just numbers and white spaces are accepted on the string.");
 
             CardNumber = cardNumber.RemoveWhiteSpace();
@@ -23,7 +23,7 @@ namespace CreditCardValidator
 
         internal CreditCardDetector(string cardNumber, bool ignoreLengthCheck)
         {
-            if (!ValidationHelper.IsAValidNumber(cardNumber))
+            if (!ValidationHelper.IsAValidNumber(cardNumber) && !ValidationHelper.IsAMaskedNumber(cardNumber))
                 throw new ArgumentException("Invalid number. Just numbers and white spaces are accepted on the string.");
 
             CardNumber = cardNumber.RemoveWhiteSpace();
