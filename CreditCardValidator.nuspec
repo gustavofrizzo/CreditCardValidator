@@ -2,7 +2,7 @@
 <package xmlns="http://schemas.microsoft.com/packaging/2011/08/nuspec.xsd">
   <metadata>
     <id>CreditCardValidator</id>
-    <version>1.4.6</version>
+    <version>2.0.0</version>
     <title>Credit Card Validator</title>
     <authors>Gustavo Frizzo and contributors</authors>
     <owners>Gustavo Frizzo</owners>
@@ -19,7 +19,7 @@ CreditCardValidator helps you implementing validations for the most common credi
 - .NET Standard 2.0 support added.
 
     </releaseNotes>
-    <copyright>Copyright © Gustavo Frizzo 2018</copyright>
+    <copyright>Copyright © Gustavo Frizzo 2020</copyright>
     <tags>Credit Card Creditcard Check Validator Validations Luhn</tags>
     <dependencies>
       <group targetFramework=".NETCoreApp1.0">
@@ -28,21 +28,17 @@ CreditCardValidator helps you implementing validations for the most common credi
       <group targetFramework=".NETCoreApp1.1">
         <dependency id="Microsoft.NETCore.App" version="1.1.2" exclude="Build,Analyzers" />
       </group>
-      <group targetFramework=".NETFramework3.5" />
       <group targetFramework=".NETFramework4.0" />
       <group targetFramework=".NETFramework4.5" />
       <group targetFramework=".NETFramework4.6" />
-      <group targetFramework=".NETFramework4.7.1" />
       <group targetFramework=".NETCoreApp2.0" />
       <group targetFramework=".NETStandard2.0" />
     </dependencies>
   </metadata>
   <files>
-    <file src="Src/CreditCardValidator.NetCore/bin/Release/net35/CreditCardValidator.dll" target="lib/net35/CreditCardValidator.dll" />
     <file src="Src/CreditCardValidator.NetCore/bin/Release/net40/CreditCardValidator.dll" target="lib/net40/CreditCardValidator.dll" />
     <file src="Src/CreditCardValidator.NetCore/bin/Release/net45/CreditCardValidator.dll" target="lib/net45/CreditCardValidator.dll" />
     <file src="Src/CreditCardValidator.NetCore/bin/Release/net46/CreditCardValidator.dll" target="lib/net46/CreditCardValidator.dll" />
-    <file src="Src/CreditCardValidator.NetCore/bin/Release/net471/CreditCardValidator.dll" target="lib/net471/CreditCardValidator.dll" />
     <file src="Src/CreditCardValidator.Pcl/bin/Release/CreditCardValidator.dll" target="lib/portable-net45+netcore45+wpa81+wp8/CreditCardValidator.dll" />
     <file src="Src/CreditCardValidator.NetCore/bin/Release/netcoreapp1.0/CreditCardValidator.dll" target="lib/netcoreapp1.0/CreditCardValidator.dll" />
     <file src="Src/CreditCardValidator.NetCore/bin/Release/netcoreapp1.1/CreditCardValidator.dll" target="lib/netcoreapp1.1/CreditCardValidator.dll" />

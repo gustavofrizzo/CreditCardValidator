@@ -1,7 +1,7 @@
 ﻿
 Microsoft Visual Studio Solution File, Format Version 12.00
-# Visual Studio 15
-VisualStudioVersion = 15.0.27004.2005
+# Visual Studio Version 16
+VisualStudioVersion = 16.0.29806.167
 MinimumVisualStudioVersion = 10.0.40219.1
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "CreditCardValidator.Net35", "Src\CreditCardValidator.Net35\CreditCardValidator.Net35.csproj", "{F138E4A6-CDC7-405C-B9FB-879ECD343E53}"
 EndProject
@@ -19,6 +19,11 @@ EndProject
 Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "zTests", "zTests", "{C5F1ADB2-6A2D-492A-8C33-75446324BBB7}"
 EndProject
 Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Src", "Src", "{A37B4815-77C3-45BD-B4A4-E5C410736345}"
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "NuGet", "NuGet", "{B1EC15DC-44E1-40A3-8301-FB472B1F6747}"
+	ProjectSection(SolutionItems) = preProject
+		CreditCardValidator.nuspec = CreditCardValidator.nuspec
+	EndProjectSection
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
