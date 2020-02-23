@@ -3,8 +3,6 @@ Microsoft Visual Studio Solution File, Format Version 12.00
 # Visual Studio Version 16
 VisualStudioVersion = 16.0.29806.167
 MinimumVisualStudioVersion = 10.0.40219.1
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "CreditCardValidator.Net35", "Src\CreditCardValidator.Net35\CreditCardValidator.Net35.csproj", "{F138E4A6-CDC7-405C-B9FB-879ECD343E53}"
-EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "CreditCardValidator.Pcl", "Src\CreditCardValidator.Pcl\CreditCardValidator.Pcl.csproj", "{10FCFCC0-BF9D-40AE-9482-37CB409A46AB}"
 EndProject
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "CreditCardValidator.NetCore", "Src\CreditCardValidator.NetCore\CreditCardValidator.NetCore.csproj", "{E1EBB0F2-E429-414D-8D23-0F9536BEFF05}"
@@ -26,10 +24,6 @@ Global
 		Release|Any CPU = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(ProjectConfigurationPlatforms) = postSolution
-		{F138E4A6-CDC7-405C-B9FB-879ECD343E53}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
-		{F138E4A6-CDC7-405C-B9FB-879ECD343E53}.Debug|Any CPU.Build.0 = Debug|Any CPU
-		{F138E4A6-CDC7-405C-B9FB-879ECD343E53}.Release|Any CPU.ActiveCfg = Release|Any CPU
-		{F138E4A6-CDC7-405C-B9FB-879ECD343E53}.Release|Any CPU.Build.0 = Release|Any CPU
 		{10FCFCC0-BF9D-40AE-9482-37CB409A46AB}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
 		{10FCFCC0-BF9D-40AE-9482-37CB409A46AB}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{10FCFCC0-BF9D-40AE-9482-37CB409A46AB}.Release|Any CPU.ActiveCfg = Release|Any CPU
@@ -47,7 +41,6 @@ Global
 		HideSolutionNode = FALSE
 	EndGlobalSection
 	GlobalSection(NestedProjects) = preSolution
-		{F138E4A6-CDC7-405C-B9FB-879ECD343E53} = {A37B4815-77C3-45BD-B4A4-E5C410736345}
 		{10FCFCC0-BF9D-40AE-9482-37CB409A46AB} = {A37B4815-77C3-45BD-B4A4-E5C410736345}
 		{E1EBB0F2-E429-414D-8D23-0F9536BEFF05} = {A37B4815-77C3-45BD-B4A4-E5C410736345}
 		{8CF1143E-3D79-4D48-91D8-7F3253C31F8A} = {C5F1ADB2-6A2D-492A-8C33-75446324BBB7}
