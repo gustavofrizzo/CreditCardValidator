@@ -14,7 +14,7 @@ namespace CreditCardUnitTest
             }
 
             [Theory]
-            [MemberData("LuhnNumbers")]
+            [MemberData(nameof(LuhnNumbers))]
             public void GivenAValidLuhnNumber_CheckLuhn_ReturnsTrue(string number)
             {
                 // Arrange.
@@ -32,7 +32,7 @@ namespace CreditCardUnitTest
             }
 
             [Theory]
-            [MemberData("LuhnCheckDigits")]
+            [MemberData(nameof(LuhnCheckDigits))]
             public void GivenAValidLuhnNumber_CreateCheckDigit_ReturnsAnEqualNumber(string number)
             {
                 // Arrange.

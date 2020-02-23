@@ -17,7 +17,7 @@ namespace CreditCardUnitTest
             }
 
             [Theory]
-            [MemberData("CreditCards")]
+            [MemberData(nameof(CreditCards))]
             public void GivenANumber_Constructor_CreatesANewInstance(KeyValuePair<string, string[]> data)
             {
                 // Arrange.

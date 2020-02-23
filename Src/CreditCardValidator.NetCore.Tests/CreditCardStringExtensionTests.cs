@@ -30,14 +30,14 @@ namespace CreditCardUnitTest
             }
 
             [Theory]
-            [MemberData("MasterCardNumbers")]
+            [MemberData(nameof(MasterCardNumbers))]
             public void Validating_CreditCardBrand(string number)
             {
                 number.CreditCardBrand().ShouldBe(CardIssuer.MasterCard);
             }
 
             [Theory]
-            [MemberData("MasterCardNumbers")]
+            [MemberData(nameof(MasterCardNumbers))]
             public void Validating_CreditCardBrandIgnoreLength(string number)
             {
                 number.CreditCardBrandIgnoreLength().ShouldBe(CardIssuer.MasterCard);

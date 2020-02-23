@@ -16,7 +16,7 @@ namespace CreditCardUnitTest
             }
 
             [Theory]
-            [MemberData("CardIssuers")]
+            [MemberData(nameof(CardIssuers))]
             public void GivenACardIssuer_RandomCardNumber_ReturnsAValidCard(CardIssuer cardIssuer)
             {
                 // Arrange.
@@ -32,7 +32,7 @@ namespace CreditCardUnitTest
             }
 
             [Theory]
-            [MemberData("CardIssuers")]
+            [MemberData(nameof(CardIssuers))]
             public void GivenACardIssuer_RandomCardNumber_ReturnsAValidCard_Length_MaxLength(CardIssuer cardIssuer)
             {
                 // Arrange.
@@ -50,7 +50,7 @@ namespace CreditCardUnitTest
             }
 
             [Theory]
-            [MemberData("CardIssuers")]
+            [MemberData(nameof(CardIssuers))]
             public void GivenACardIssuer_RandomCardNumber_ReturnsAValidCard_Length_MinLength(CardIssuer cardIssuer)
             {
                 // Arrange.
@@ -71,7 +71,7 @@ namespace CreditCardUnitTest
             }
 
             [Theory]
-            [MemberData("CardIssuers")]
+            [MemberData(nameof(CardIssuers))]
             public void GivenACardIssuer_RandomCardNumber_ReturnsAValidCard_Length_Invalid(CardIssuer cardIssuer)
             {
                 // Arrange.
