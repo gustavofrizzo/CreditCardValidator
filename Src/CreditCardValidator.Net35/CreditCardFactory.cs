@@ -7,6 +7,7 @@ namespace CreditCardValidator
 {
     public static class CreditCardFactory
     {
+        [ThreadStatic]
         private static readonly Random RandomNumber = new Random();
 
         public static string RandomCardNumber(CardIssuer brand)
