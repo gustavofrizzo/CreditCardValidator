@@ -25,7 +25,7 @@ namespace CreditCardUnitTest
                 //return theoryData;
                 foreach (var issuer in Enum.GetValues(typeof(CardIssuer))
                     .Cast<CardIssuer>()
-                    .Where(issuer => issuer != CardIssuer.Unknown))
+                    .Where(issuer => issuer != CardIssuer.Unknown && issuer != CardIssuer.Solo))
                 {
                     theoryData.Add(issuer);
                 }

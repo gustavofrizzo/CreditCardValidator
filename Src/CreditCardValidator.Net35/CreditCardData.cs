@@ -1,9 +1,10 @@
-﻿using System.Collections.Generic;
+﻿using System;
+using System.Collections.Generic;
 
 namespace CreditCardValidator
 {
     /// <summary>
-    ///     Issuing institutes accepted.
+    /// Issuing institutes accepted.
     /// </summary>
     public enum CardIssuer
     {
@@ -18,6 +19,7 @@ namespace CreditCardValidator
         Maestro,
         MasterCard,
         RuPay,
+        [Obsolete("The Solo card scheme was decommissioned permanently on 31 March 2011. CreditCardValidator is no longer detecting it.")]
         Solo,
         Switch,
         Visa,
@@ -28,11 +30,6 @@ namespace CreditCardValidator
     {
         public static IDictionary<CardIssuer, BrandInfo> BrandsData;
 
-        /// <summary>
-        ///     A static constructor is used to initialize any static data, or to perform a particular
-        ///     action that needs to be performed once only. It is called automatically before the
-        ///     first instance is created or any static members are referenced.
-        /// </summary>
         static CreditCardData()
         {
             BrandsData = new Dictionary<CardIssuer, BrandInfo>();
@@ -144,18 +141,18 @@ namespace CreditCardValidator
                 }
             });
 
-            BrandsData.Add(CardIssuer.Solo, new BrandInfo
-            {
-                BrandName = "Solo",
-                Rules = new List<Rule>
-                {
-                    new Rule
-                    {
-                        Lengths = new List<int> {16, 18, 19},
-                        Prefixes = new List<string> {"6334", "6767"}
-                    }
-                }
-            });
+            //BrandsData.Add(CardIssuer.Solo, new BrandInfo
+            //{
+            //    BrandName = "Solo",
+            //    Rules = new List<Rule>
+            //    {
+            //        new Rule
+            //        {
+            //            Lengths = new List<int> {16, 18, 19},
+            //            Prefixes = new List<string> {"6334", "6767"}
+            //        }
+            //    }
+            //});
 
             BrandsData.Add(CardIssuer.Switch, new BrandInfo
             {
