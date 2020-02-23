@@ -54,17 +54,20 @@ namespace CreditCardUnitTest
             public void GivenACardIssuer_RandomCardNumber_ReturnsAValidCard_Length_MinLength(CardIssuer cardIssuer)
             {
                 // Arrange.
-                var minLength = TestHelperUtilities.Lengths(cardIssuer).FirstOrDefault();
+                var lengths = TestHelperUtilities.Lengths(cardIssuer);
 
-                // Act.
-                var number = CreditCardFactory.RandomCardNumber(cardIssuer, minLength);
+                foreach(var len in lengths)
+                {
+                    // Act.
+                    var number = CreditCardFactory.RandomCardNumber(cardIssuer, len);
 
-                // Assert.
-                var detector = new CreditCardDetector(number);
-                number.Length.ShouldBe(minLength);
-                detector.Brand.ShouldBe(cardIssuer);
-                detector.IsValid(cardIssuer).ShouldBe(true);
-                detector.IsValid().ShouldBe(true);
+                    // Assert.
+                    var detector = new CreditCardDetector(number);
+                    number.Length.ShouldBe(len);
+                    detector.Brand.ShouldBe(cardIssuer);
+                    detector.IsValid(cardIssuer).ShouldBe(true);
+                    detector.IsValid().ShouldBe(true);
+                }
             }
 
             [Theory]
@@ -74,11 +77,12 @@ namespace CreditCardUnitTest
                 // Arrange.
                 string number = "";
                 Exception e = new Exception();
+                int length = 99;
 
                 // Act.
                 try
                 {
-                    number = CreditCardFactory.RandomCardNumber(cardIssuer, 99);
+                    number = CreditCardFactory.RandomCardNumber(cardIssuer, length);
                 }
                 catch (Exception ex)
                 {
@@ -87,7 +91,7 @@ namespace CreditCardUnitTest
 
                 // Assert
                 e.ShouldBeOfType<ArgumentException>();
-                e.Message.ShouldBe("99 is not valid length for card issuer " + cardIssuer.ToString());
+                e.Message.ShouldBe($"The card number length [{length}] is not valid for the card issuer [{cardIssuer}].");
                 number.Length.ShouldBe(0);
             }
         }

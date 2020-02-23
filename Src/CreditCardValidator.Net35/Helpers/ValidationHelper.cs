@@ -1,4 +1,5 @@
-﻿using System.Linq;
+﻿using System.Collections.Generic;
+using System.Linq;
 
 namespace CreditCardValidator.Helpers
 {
@@ -14,11 +15,19 @@ namespace CreditCardValidator.Helpers
                     !string.IsNullOrEmpty(number));
         }
 
-        public static bool IsAValidLength(CardIssuer brand, int length)
+        internal static List<Rule> GetRulesByLength(CardIssuer cardIssuer, int length)
         {
-            var rule = CreditCardData.BrandsData[brand].Rules.First();
+            var rules = CreditCardData.BrandsData[cardIssuer].Rules;
 
-            return rule.Lengths.Contains(length);
+            var result = new List<Rule>();
+
+            foreach (var rule in rules)
+            {
+                if (rule.Lengths.Contains(length))
+                    result.Add(rule);
+            }
+
+            return result;
         }
     }
 }
