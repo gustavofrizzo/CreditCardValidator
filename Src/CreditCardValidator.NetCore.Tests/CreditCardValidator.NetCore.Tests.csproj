@@ -15,7 +15,7 @@
   </ItemGroup>
 
   <ItemGroup>
-    <ProjectReference Include="..\Src\CreditCardValidator.NetCore\CreditCardValidator.NetCore.csproj" />
+    <ProjectReference Include="..\CreditCardValidator.NetCore\CreditCardValidator.NetCore.csproj" />
   </ItemGroup>
 
   <ItemGroup>
