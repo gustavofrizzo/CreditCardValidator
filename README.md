@@ -1,4 +1,4 @@
-# CreditCardValidator [![Build Status](https://github.com/gustavofrizzo/CreditCardValidator/workflows/.NET%20Core/badge.svg)]
+# CreditCardValidator ![](https://github.com/gustavofrizzo/CreditCardValidator/workflows/.NET%20Core/badge.svg)
 
 CreditCardValidator helps you implementing validations for the most common credit card brands, verifying length, prefixes and checking the card number through the Luhn algorithm if necessary.
 
