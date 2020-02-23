@@ -13,9 +13,9 @@ jobs:
       uses: actions/setup-dotnet@v1
       with:
         dotnet-version: 2.2.108
-    - name: Build with dotnet
+    - name: Build NetCore Project
       run: dotnet build Src/CreditCardValidator.NetCore --configuration Release
-    - name: Build test project with dotnet
+    - name: Build Test Project
       run: dotnet build Src/CreditCardValidator.NetCore.Tests --configuration Release
-    - name: Test with dotnet
+    - name: Run Tests
       run: dotnet test Src/CreditCardValidator.NetCore.Tests --configuration Release
