@@ -22,9 +22,7 @@ namespace CreditCardValidator
         public static bool CheckLuhn(string creditCardNumber)
         {
             if (!ValidationHelper.IsAValidNumber(creditCardNumber))
-            {
-                throw new ArgumentException("Invalid number. Just numbers and white spaces are accepted on the string.");
-            }
+                throw new ArgumentException("Invalid number. Just numbers and white spaces are accepted in the string.");
 
             var checkSum = creditCardNumber
                 .RemoveWhiteSpace()
@@ -40,9 +38,7 @@ namespace CreditCardValidator
         public static string CreateCheckDigit(string number)
         {
             if (!ValidationHelper.IsAValidNumber(number))
-            {
-                throw new ArgumentException("Invalid number. Just numbers and white spaces are accepted on the string.");
-            }
+                throw new ArgumentException("Invalid number. Just numbers and white spaces are accepted in the string.");
 
             var digitsSum = number
                 .RemoveWhiteSpace()
