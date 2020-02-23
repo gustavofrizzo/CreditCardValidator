@@ -28,8 +28,7 @@ namespace CreditCardValidator
 
             length = length > 0 ? length : rule.Lengths.First();
 
-            if (cardIssuer != CardIssuer.Unknown)
-                number += rule.Prefixes[RandomNumber.Next(0, rule.Prefixes.Count)];
+            number += rule.Prefixes[RandomNumber.Next(0, rule.Prefixes.Count)];
 
             var numberLength = number.Length;
             for (int i = 0; i < length - 1 - numberLength; i++)

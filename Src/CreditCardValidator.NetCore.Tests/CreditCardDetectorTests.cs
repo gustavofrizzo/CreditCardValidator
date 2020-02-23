@@ -83,26 +83,24 @@ namespace CreditCardUnitTest
                 CardIssuer ci = range.Range.CreditCardBrandIgnoreLength();
 
                 (ci.ToString().ToLower() == range.CardIssuer.ToLower()).ShouldBe(true);
-                //if (cardDetector.Brand.ToString().ToLower() != range.CardIssuer.ToLower())
-                //    throw new Exception();
             }
         }
+    }
 
-        public class RangeHelper
+    public class RangeHelper
+    {
+        public string Range { get; set; }
+        public string CardIssuer { get; set; }
+
+        public RangeHelper(string range, string issuer)
         {
-            public string Range { get; set; }
-            public string CardIssuer { get; set; }
+            Range = range;
+            CardIssuer = issuer;
+        }
 
-            public RangeHelper(string range, string issuer)
-            {
-                Range = range;
-                CardIssuer = issuer;
-            }
-
-            public override string ToString()
-            {
-                return $"{Range} - {CardIssuer}";
-            }
+        public override string ToString()
+        {
+            return $"{Range} - {CardIssuer}";
         }
     }
 }

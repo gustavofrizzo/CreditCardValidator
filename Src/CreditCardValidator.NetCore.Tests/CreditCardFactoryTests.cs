@@ -94,6 +94,19 @@ namespace CreditCardUnitTest
                 e.Message.ShouldBe($"The card number length [{length}] is not valid for the card issuer [{cardIssuer}].");
                 number.Length.ShouldBe(0);
             }
+
+            [Fact]
+            public void TestUnknownCardIssuerGeneration()
+            {
+                for(int i = 0; i < 10000; i++)
+                {
+                    var unkCard = CreditCardFactory.RandomCardNumber(CardIssuer.Unknown);
+
+                    CreditCardDetector detector = new CreditCardDetector(unkCard);
+
+                    detector.Brand.ShouldBe<CardIssuer>(CardIssuer.Unknown);
+                }
+            }
         }
     }
 }

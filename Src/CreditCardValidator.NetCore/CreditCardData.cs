@@ -263,7 +263,7 @@ namespace CreditCardValidator
                     new Rule
                     {
                         Lengths = new List<int> {15},
-                        Prefixes = new List<string>()
+                        Prefixes = new List<string>() {"7" , "80", "90"}
                     }
                 }
             });
