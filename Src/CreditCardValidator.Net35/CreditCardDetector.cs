@@ -34,7 +34,7 @@ namespace CreditCardValidator
             else
                 LoadCard();
         }
-        
+
         public string IssuerCategory
         {
             get { return MajorIndustryIdentifier.Categories[Convert.ToInt32(CardNumber[0].ToString())]; }
