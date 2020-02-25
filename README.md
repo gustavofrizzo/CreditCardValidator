@@ -4,9 +4,9 @@ CreditCardValidator helps you implementing validations for the most common credi
 
 Nuget Package -> https://www.nuget.org/packages/CreditCardValidator
 
-## Issuing network Supported 
+## Supported Card Issuers 
 
-The following issuing institutes are supported:
+The following card issuers are supported:
 
 <table>
 <tr>
@@ -39,7 +39,7 @@ detector.IssuerCategory; // => Banking and financial
 
 #### CreditCardFactory
 
-Generate random credit card numbers from a specific CardIssuer.
+Generates random credit card numbers of a specific CardIssuer.
 
 ```csharp
 string visaNumber = CreditCardFactory.RandomCardNumber(CardIssuer.Visa);
@@ -52,7 +52,7 @@ string chinaUnionPayNumber = CreditCardFactory.RandomCardNumber(CardIssuer.China
 // => 6280209982074556
 ```
 
-Generate random credit card numbers from a specific CardIssuer with any valid card number length.
+Generates random credit card numbers of a specific CardIssuer with any valid card length.
 
 ```csharp
 string visaNumber = CreditCardFactory.RandomCardNumber(CardIssuer.Visa, 16);
