@@ -7,14 +7,14 @@
     <PackageId>CreditCardValidator</PackageId>
     <Product>CreditCardValidator</Product>
     <Version>2.0.0</Version>
+    <FileVersion>2.0.0.0</FileVersion>
+    <AssemblyVersion>2.0.0.0</AssemblyVersion>
     <title>Credit Card Validator</title>
     <Copyright>Copyright © Gustavo Frizzo 2020</Copyright>
-    <AssemblyVersion>2.0.0.0</AssemblyVersion>
     <Description>A library for validating and generating credit card numbers.
 
 CreditCardValidator helps you implementing validations for the most common credit card brands, verifying length, prefixes and checking the card number through the Luhn algorithm if necessary.
     </Description>
-    <FileVersion>2.0.0.0</FileVersion>
     <summary>CreditCardValidator helps you implementing validations for the most common credit card brands, verifying length, prefixes and checking the card number through the Luhn algorithm if needed.</summary>
     <Company />
     <Authors>Gustavo Frizzo and contributors</Authors>
