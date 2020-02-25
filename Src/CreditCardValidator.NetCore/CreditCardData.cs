@@ -4,7 +4,7 @@ using System.Collections.Generic;
 namespace CreditCardValidator
 {
     /// <summary>
-    /// Issuing institutes accepted.
+    /// Accepted Card Issuers Institutes.
     /// </summary>
     public enum CardIssuer
     {
