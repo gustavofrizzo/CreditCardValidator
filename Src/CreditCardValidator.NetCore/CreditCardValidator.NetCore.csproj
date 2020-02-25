@@ -5,22 +5,31 @@
     <AssemblyName>CreditCardValidator</AssemblyName>
     <RootNamespace>CreditCardValidator</RootNamespace>
     <PackageId>CreditCardValidator</PackageId>
-    <Product>CreditCardValidator.NetCore</Product>
+    <Product>CreditCardValidator</Product>
     <Version>2.0.0</Version>
     <title>Credit Card Validator</title>
     <Copyright>Copyright © Gustavo Frizzo 2020</Copyright>
     <AssemblyVersion>2.0.0.0</AssemblyVersion>
-    <Description>A library for validating credit card numbers and generating ones.
+    <Description>A library for validating and generating credit card numbers.
 
-CreditCardValidator helps you implementing validations for the most common credit card brands, verifying length, prefixes and checking the card number through the Luhn algorithm if necessary.</Description>
-    <FileVersion>0.0.0.0</FileVersion>
-    <summary>CreditCardValidator helps you implementing validations for the most common credit card brands, verifying length, prefixes and checking the card number through the Luhn algorithm if necessary.</summary>
+CreditCardValidator helps you implementing validations for the most common credit card brands, verifying length, prefixes and checking the card number through the Luhn algorithm if necessary.
+    </Description>
+    <FileVersion>2.0.0.0</FileVersion>
+    <summary>CreditCardValidator helps you implementing validations for the most common credit card brands, verifying length, prefixes and checking the card number through the Luhn algorithm if needed.</summary>
     <Company />
     <Authors>Gustavo Frizzo and contributors</Authors>
-    <owners>Gustavo Frizzo</owners>
-    <PackageLicenseUrl>https://github.com/gustavofrizzo/CreditCardValidator/blob/master/LICENSE</PackageLicenseUrl>
+    <owners>gustavo.frizzo</owners>
+    <PackageLicenseExpression>MIT</PackageLicenseExpression>
     <PackageProjectUrl>https://github.com/gustavofrizzo/CreditCardValidator</PackageProjectUrl>
     <PackageTags>Credit Card Creditcard Check Validator Validations Luhn</PackageTags>
-    <PackageReleaseNotes></PackageReleaseNotes>
+    <PackageReleaseNotes>
+- Dropped support for .NET Framework 3.5.
+- Added netstandard1.0 target.
+- Added optional length parameter to CreditCardFactory.RandomCardNumber().
+- Fixing typos.
+- Removed support for Solo cards. The Solo card scheme was decommissioned permanently on 31 March 2011. CreditCardValidator is no longer detecting it.
+- Removed project PCL Profile. It should be compatible with .NET Standard 1.0.
+- Fixed issue where CreditCardFactory sometimes generates a number matching some brand for parameter CardIssuer.Unknown.
+    </PackageReleaseNotes>
   </PropertyGroup>
 </Project>
