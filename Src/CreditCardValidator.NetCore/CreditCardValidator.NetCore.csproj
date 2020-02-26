@@ -21,6 +21,7 @@ CreditCardValidator helps you implementing validations for the most common credi
     <owners>gustavo.frizzo</owners>
     <PackageLicenseExpression>MIT</PackageLicenseExpression>
     <PackageProjectUrl>https://github.com/gustavofrizzo/CreditCardValidator</PackageProjectUrl>
+    <RepositoryUrl>https://github.com/gustavofrizzo/CreditCardValidator</RepositoryUrl>
     <PackageTags>Credit Card Creditcard Check Validator Validations Luhn</PackageTags>
     <PackageReleaseNotes>
 - Dropped support for .NET Framework 3.5.
