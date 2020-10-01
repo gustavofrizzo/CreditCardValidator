@@ -1,7 +1,10 @@
 ﻿using CreditCardValidator;
 using Shouldly;
 using System;
+using System.Collections.Concurrent;
+using System.Collections.Generic;
 using System.Linq;
+using System.Threading.Tasks;
 using Xunit;
 
 namespace CreditCardUnitTest
@@ -106,6 +109,33 @@ namespace CreditCardUnitTest
 
                     detector.Brand.ShouldBe<CardIssuer>(CardIssuer.Unknown);
                 }
+            }
+
+            [Fact]
+            public void TestMultiThreadRandomCardNumberGeneration()
+            {
+                List<Task> tasks = new List<Task>();
+                ConcurrentDictionary<string, byte> results = new ConcurrentDictionary<string, byte>();
+
+                for (int i = 0; i < 20; i++)
+                {
+                    Task task = new Task(() =>
+                    {
+                        for (int j = 0; j < 1000; j++)
+                        {
+                            var cardNumber = CreditCardFactory.RandomCardNumber(CardIssuer.MasterCard);
+                            Assert.NotNull(cardNumber);
+
+                            if (!results.TryAdd(cardNumber, 0))
+                                throw new Exception($"Generated a duplicate card number: [{cardNumber}]");
+                        }
+                    });
+
+                    tasks.Add(task);
+                }
+
+                tasks.ForEach(t => t.Start());
+                Task.WaitAll(tasks.ToArray());
             }
         }
     }

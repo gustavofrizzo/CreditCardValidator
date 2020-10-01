@@ -1,14 +1,13 @@
 ﻿using CreditCardValidator.Helpers;
 using System;
-using System.Collections.Generic;
 using System.Linq;
+using System.Threading;
 
 namespace CreditCardValidator
 {
     public static class CreditCardFactory
     {
-        [ThreadStatic]
-        private static readonly Random RandomNumber = new Random();
+        private static readonly ThreadLocal<Random> RandomNumber = new ThreadLocal<Random>(() => { return new Random(); });
 
         public static string RandomCardNumber(CardIssuer brand)
         {
@@ -28,12 +27,12 @@ namespace CreditCardValidator
 
             length = length > 0 ? length : rule.Lengths.First();
 
-            number += rule.Prefixes[RandomNumber.Next(0, rule.Prefixes.Count)];
+            number += rule.Prefixes[RandomNumber.Value.Next(0, rule.Prefixes.Count)];
 
             var numberLength = number.Length;
             for (int i = 0; i < length - 1 - numberLength; i++)
             {
-                number += RandomNumber.Next(0, 10);
+                number += RandomNumber.Value.Next(0, 10);
             }
 
             number += Luhn.CreateCheckDigit(number);
