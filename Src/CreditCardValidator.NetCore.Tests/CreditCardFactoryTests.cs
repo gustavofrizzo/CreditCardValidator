@@ -114,20 +114,19 @@ namespace CreditCardUnitTest
             [Fact]
             public void TestMultiThreadRandomCardNumberGeneration()
             {
-                List<Task> tasks = new List<Task>();
-                ConcurrentDictionary<string, byte> results = new ConcurrentDictionary<string, byte>();
+                var tasks = new List<Task>();
+                var results = new ConcurrentDictionary<string, byte>();
 
                 for (int i = 0; i < 20; i++)
                 {
-                    Task task = new Task(() =>
+                    var task = new Task(() =>
                     {
                         for (int j = 0; j < 1000; j++)
                         {
                             var cardNumber = CreditCardFactory.RandomCardNumber(CardIssuer.MasterCard);
-                            Assert.NotNull(cardNumber);
 
-                            if (!results.TryAdd(cardNumber, 0))
-                                throw new Exception($"Generated a duplicate card number: [{cardNumber}]");
+                            Assert.NotNull(cardNumber);
+                            Assert.True(results.TryAdd(cardNumber, 0), $"Error: Factory generated a duplicated card number: [{cardNumber}]");
                         }
                     });
 
