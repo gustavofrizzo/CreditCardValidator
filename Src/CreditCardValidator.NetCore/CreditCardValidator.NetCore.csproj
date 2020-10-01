@@ -6,9 +6,9 @@
     <RootNamespace>CreditCardValidator</RootNamespace>
     <PackageId>CreditCardValidator</PackageId>
     <Product>CreditCardValidator</Product>
-    <Version>2.0.0</Version>
-    <FileVersion>2.0.0.0</FileVersion>
-    <AssemblyVersion>2.0.0.0</AssemblyVersion>
+    <Version>2.0.1</Version>
+    <FileVersion>2.0.1.0</FileVersion>
+    <AssemblyVersion>2.0.1.0</AssemblyVersion>
     <title>Credit Card Validator</title>
     <Copyright>Copyright © Gustavo Frizzo 2020</Copyright>
     <Description>A library for validating and generating credit card numbers.
@@ -24,13 +24,7 @@ CreditCardValidator helps you implementing validations for the most common credi
     <RepositoryUrl>https://github.com/gustavofrizzo/CreditCardValidator</RepositoryUrl>
     <PackageTags>Credit Card Creditcard Check Validator Validations Luhn</PackageTags>
     <PackageReleaseNotes>
-- Dropped support for .NET Framework 3.5.
-- Added netstandard1.0 target.
-- Added optional length parameter to CreditCardFactory.RandomCardNumber().
-- Fixing typos.
-- Removed support for Solo cards. The Solo card scheme was decommissioned permanently on 31 March 2011. CreditCardValidator is no longer detecting it.
-- Removed project PCL Profile. It should be compatible with .NET Standard 1.0.
-- Fixed issue where CreditCardFactory sometimes generates a number matching some brand for parameter CardIssuer.Unknown.
+- Fixed issue where generating random card numbers in multiple threads could cause a NullReferenceException.
     </PackageReleaseNotes>
   </PropertyGroup>
 </Project>
