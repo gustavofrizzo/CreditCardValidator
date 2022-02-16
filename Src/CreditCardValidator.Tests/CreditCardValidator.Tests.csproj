@@ -21,7 +21,7 @@
   </ItemGroup>
 
   <ItemGroup>
-    <ProjectReference Include="..\CreditCardValidator.NetCore\CreditCardValidator.NetCore.csproj" />
+    <ProjectReference Include="..\CreditCardValidator\CreditCardValidator.csproj" />
   </ItemGroup>
 
   <ItemGroup>
