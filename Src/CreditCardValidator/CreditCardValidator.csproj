@@ -1,7 +1,7 @@
 ﻿<Project Sdk="Microsoft.NET.Sdk">
 
   <PropertyGroup>
-    <TargetFrameworks>netcoreapp1.0;netcoreapp1.1;netcoreapp2.0;net40;net45;net46;netstandard1.0;netstandard2.0</TargetFrameworks>
+    <TargetFrameworks>netstandard1.1;netstandard2.0</TargetFrameworks>
     <AssemblyName>CreditCardValidator</AssemblyName>
     <RootNamespace>CreditCardValidator</RootNamespace>
     <PackageId>CreditCardValidator</PackageId>
