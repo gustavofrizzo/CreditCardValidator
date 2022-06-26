@@ -1,6 +1,8 @@
 # CreditCardValidator [![Build & Tests](https://github.com/gustavofrizzo/CreditCardValidator/actions/workflows/dotnet-build-and-tests.yml/badge.svg)](https://github.com/gustavofrizzo/CreditCardValidator/actions/workflows/dotnet-build-and-tests.yml)
 
-CreditCardValidator helps you implementing validations for the most common credit card brands, verifying length, prefixes and checking the card number through the Luhn algorithm if necessary.
+CreditCardValidator helps you validate credit card numbers, identify its issuer (Visa, Mastercard, etc), verify length, prefixes and check it through the Luhn algorithm.
+
+It can also generate random credit card numbers for testing purposes.
 
 Nuget Package -> https://www.nuget.org/packages/CreditCardValidator
 
