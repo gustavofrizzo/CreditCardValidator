@@ -20,7 +20,7 @@
     <PackageProjectUrl>https://github.com/gustavofrizzo/CreditCardValidator</PackageProjectUrl>
     <RepositoryUrl>https://github.com/gustavofrizzo/CreditCardValidator</RepositoryUrl>
     <PackageTags>Credit Card Creditcard Check Validator Validations Luhn</PackageTags>
-    <PackageReleaseNotes>Removing support to .NET 4 framework.</PackageReleaseNotes>
+    <PackageReleaseNotes>Removing support for .NET 4 framework.</PackageReleaseNotes>
     <RepositoryType>git</RepositoryType>
     <PackageReadmeFile>README.md</PackageReadmeFile>
   </PropertyGroup>
