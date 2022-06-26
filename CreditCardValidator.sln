@@ -7,11 +7,6 @@ Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Tests", "Tests", "{C5F1ADB2
 EndProject
 Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Src", "Src", "{A37B4815-77C3-45BD-B4A4-E5C410736345}"
 EndProject
-Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "NuGet", "NuGet", "{B1EC15DC-44E1-40A3-8301-FB472B1F6747}"
-	ProjectSection(SolutionItems) = preProject
-		CreditCardValidator.nuspec = CreditCardValidator.nuspec
-	EndProjectSection
-EndProject
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "CreditCardValidator", "Src\CreditCardValidator\CreditCardValidator.csproj", "{B43A65FA-0F50-4BF6-9C72-4F96E07B93B2}"
 EndProject
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "CreditCardValidator.Tests", "Src\CreditCardValidator.Tests\CreditCardValidator.Tests.csproj", "{DF67A690-2BFE-4755-A39A-68B824336232}"
