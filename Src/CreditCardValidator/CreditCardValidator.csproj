@@ -6,9 +6,9 @@
     <RootNamespace>CreditCardValidator</RootNamespace>
     <PackageId>CreditCardValidator</PackageId>
     <Product>CreditCardValidator</Product>
-    <Version>3.0.0</Version>
-    <FileVersion>3.0.0.0</FileVersion>
-    <AssemblyVersion>3.0.0.0</AssemblyVersion>
+    <Version>3.0.1</Version>
+    <FileVersion>3.0.1.0</FileVersion>
+    <AssemblyVersion>3.0.1.0</AssemblyVersion>
     <title>Credit Card Validator</title>
     <Copyright>Copyright © Gustavo Frizzo 2022</Copyright>
     <Description>CreditCardValidator helps you validate credit card numbers, identify its issuer (Visa, Mastercard, etc), verify length, prefixes and check it through the Luhn algorithm. It can also generate random credit card numbers for testing purposes.</Description>
