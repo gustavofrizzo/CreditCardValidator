@@ -20,7 +20,7 @@ The following card issuers are supported:
 
 ## Usage
 
-#### CreditCardDetector
+### CreditCardDetector
 
 ```csharp
 CreditCardDetector detector = new CreditCardDetector("4012 8888 8888 1881");
@@ -35,7 +35,7 @@ detector.BrandName; // => Visa
 detector.IssuerCategory; // => Banking and financial
 ```
 
-#### CreditCardFactory
+### CreditCardFactory
 
 Generates random credit card numbers of a specific CardIssuer.
 
@@ -57,7 +57,7 @@ string visaNumber = CreditCardFactory.RandomCardNumber(CardIssuer.Visa, 16);
 // => 4556672647860978
 ```
 
-#### CreditCardStringExtension
+### CreditCardStringExtension
 
 ```csharp
 "4953089013607".CreditCardBrand(); // => CardIssuer.Visa
@@ -70,17 +70,9 @@ string visaNumber = CreditCardFactory.RandomCardNumber(CardIssuer.Visa, 16);
 
 "495308".CreditCardBrandNameIgnoreLength() // => Visa
 ```
-#### Luhn
+### Luhn
 
 ```csharp
 Luhn.CheckLuhn("4953089013607"); // => True
 Luhn.CreateCheckDigit("495308901360"); // => 7
 ```
-
-## Contributing
-
-1. Fork it
-2. Create your feature branch (`git checkout -b my-new-feature`)
-3. Commit your changes (`git commit -am 'Add some feature'`)
-4. Push to the branch (`git push origin my-new-feature`)
-5. Create new Pull Request
