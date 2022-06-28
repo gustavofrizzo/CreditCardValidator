@@ -10,17 +10,13 @@ Nuget Package -> https://www.nuget.org/packages/CreditCardValidator
 
 The following card issuers are supported:
 
-<table>
-<tr>
-<td>AmericanExpress</td> <td>MasterCard</td> <td>Maestro</td> <td>DinersClub</td> <td>Discover</td> 
-</tr>
-<tr>
-<td>Hipercard</td> <td>Visa</td>  <td>Laser</td> <td>ChinaUnionPay</td> <td>Dankort</td> 
-</tr>
-<tr>
-<td>Rupay</td> <td>Solo (Deprecated)</td> <td>Switch</td> <td>JCB</td>
-</tr>
-</table>
+
+||||||
+|-|-|-|-|-|
+|AmericanExpress|MasterCard|Maestro|DinersClub|Discover|
+|Hipercard|Visa|Laser|ChinaUnionPay|Dankort|
+|Rupay|Solo (Deprecated)|Switch|JCB|-|
+
 
 ## Usage
 
